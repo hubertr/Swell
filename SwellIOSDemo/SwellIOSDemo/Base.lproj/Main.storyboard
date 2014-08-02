@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwellIOSDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="241" affinity="minY"/>
+                            <userLayoutGuide location="240" affinity="minX"/>
+                            <userLayoutGuide location="240" affinity="minY"/>
+                            <userLayoutGuide location="240" affinity="minX"/>
+                        </userGuides>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cR-ti-E5V">
+                                <rect key="frame" x="138" y="225" width="48" height="30"/>
+                                <state key="normal" title="Trace">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="218" y="225" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="traceTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="klZ-Wv-Gi0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQw-GP-oRk">
+                                <rect key="frame" x="216" y="225" width="48" height="30"/>
+                                <state key="normal" title="Debug">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="296" y="225" width="48" height="30"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="297" y="225" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="debugTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lDd-9u-tHc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL7-d3-LhS">
+                                <rect key="frame" x="296" y="225" width="48" height="30"/>
+                                <state key="normal" title="Info">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="376" y="225" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="infoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t4V-Bp-Qc0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH3-c8-L9Z">
+                                <rect key="frame" x="216" y="279" width="48" height="30"/>
+                                <state key="normal" title="Error">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="296" y="279" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="errorTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e6O-d5-w3o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6S-ah-h10">
+                                <rect key="frame" x="138" y="279" width="48" height="30"/>
+                                <state key="normal" title="Warn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="218" y="279" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="warnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdt-lh-Mzt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WW5-of-sAk">
+                                <rect key="frame" x="296" y="279" width="48" height="30"/>
+                                <state key="normal" title="Severe">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="376" y="279" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="severeTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Al1-Y0-rCl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nH3-c8-L9Z" firstAttribute="width" secondItem="U6S-ah-h10" secondAttribute="width" id="34A-o8-PPC"/>
+                            <constraint firstItem="nH3-c8-L9Z" firstAttribute="width" secondItem="hL7-d3-LhS" secondAttribute="width" id="3yF-G8-viW"/>
+                            <constraint firstAttribute="centerX" secondItem="XQw-GP-oRk" secondAttribute="centerX" id="67I-9i-4UH"/>
+                            <constraint firstAttribute="centerX" secondItem="nH3-c8-L9Z" secondAttribute="centerX" id="LuE-W5-cKg"/>
+                            <constraint firstItem="hL7-d3-LhS" firstAttribute="leading" secondItem="XQw-GP-oRk" secondAttribute="trailing" constant="32" id="Obh-vL-xfe"/>
+                            <constraint firstItem="nH3-c8-L9Z" firstAttribute="leading" secondItem="U6S-ah-h10" secondAttribute="trailing" constant="30" id="UfK-UV-QZ3"/>
+                            <constraint firstItem="nH3-c8-L9Z" firstAttribute="width" secondItem="XQw-GP-oRk" secondAttribute="width" id="VXJ-H1-Q93"/>
+                            <constraint firstItem="nH3-c8-L9Z" firstAttribute="width" secondItem="2cR-ti-E5V" secondAttribute="width" id="bJt-vd-eu5"/>
+                            <constraint firstItem="XQw-GP-oRk" firstAttribute="leading" secondItem="2cR-ti-E5V" secondAttribute="trailing" constant="30" id="liy-8L-1ob"/>
+                            <constraint firstItem="nH3-c8-L9Z" firstAttribute="width" secondItem="WW5-of-sAk" secondAttribute="width" id="nzT-bW-c0X"/>
+                            <constraint firstItem="WW5-of-sAk" firstAttribute="leading" secondItem="nH3-c8-L9Z" secondAttribute="trailing" constant="32" id="vPG-lO-KXi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="531" y="250"/>
+        </scene>
+    </scenes>
+</document>

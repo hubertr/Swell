@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SWLQuickFormat</key>
+	<string>NameLevelMessage</string>
+	<key>SWLLocation</key>
+	<string>console</string>
+	<key>SWLLevel</key>
+	<string>debug</string>
+	<key>SWLLocationFilename</key>
+	<string>logplist.txt</string>
+	<key>TestPListLogger</key>
+	<dict>
+		<key>SWLLevel</key>
+		<string>error</string>
+		<key>SWLBasicFormat</key>
+		<string>DateLevelMessage</string>
+	</dict>
+	<key>SwellFileTester</key>
+	<dict>
+		<key>SWLLevel</key>
+		<string>info</string>
+		<key>SWLLocation</key>
+		<string>file console</string>
+		<key>SWLLocationFilename</key>
+		<string>logfileplist2.txt</string>
+		<key>SWLFlexFormat</key>
+		<string>Level Name Message</string>
+	</dict>
+</dict>
+</plist>

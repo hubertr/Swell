@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DF509BE1198D0687001E4E8C /* SwellAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF509BE0198D0687001E4E8C /* SwellAll.swift */; };
+		DFF628F1197C938C0022A2E9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF628F0197C938C0022A2E9 /* main.swift */; };
+		DFF628F3197C938C0022A2E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF628F2197C938C0022A2E9 /* AppDelegate.swift */; };
+		DFF628F5197C938C0022A2E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF628F4197C938C0022A2E9 /* Images.xcassets */; };
+		DFF628F8197C938C0022A2E9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFF628F6197C938C0022A2E9 /* MainMenu.xib */; };
+		DFF62904197C938C0022A2E9 /* SwellOSXDemo2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF62903197C938C0022A2E9 /* SwellOSXDemo2Tests.swift */; };
+		DFF62910197C95120022A2E9 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF6290F197C95120022A2E9 /* Box.swift */; };
+		DFF62912197C95950022A2E9 /* Swell.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF62911197C95950022A2E9 /* Swell.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DFF628FE197C938C0022A2E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFF628E3197C938C0022A2E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFF628EA197C938C0022A2E9;
+			remoteInfo = SwellOSXDemo2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DF509BE0198D0687001E4E8C /* SwellAll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwellAll.swift; path = SwellOSXDemo2/SwellAll.swift; sourceTree = "<group>"; };
+		DFF628EB197C938C0022A2E9 /* SwellOSXDemo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwellOSXDemo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF628EF197C938C0022A2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFF628F0197C938C0022A2E9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DFF628F2197C938C0022A2E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DFF628F4197C938C0022A2E9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DFF628F7197C938C0022A2E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DFF628FD197C938C0022A2E9 /* SwellOSXDemo2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwellOSXDemo2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF62902197C938C0022A2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFF62903197C938C0022A2E9 /* SwellOSXDemo2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwellOSXDemo2Tests.swift; sourceTree = "<group>"; };
+		DFF6290F197C95120022A2E9 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		DFF62911197C95950022A2E9 /* Swell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Swell.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DFF628E8197C938C0022A2E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF628FA197C938C0022A2E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DFF628E2197C938C0022A2E9 = {
+			isa = PBXGroup;
+			children = (
+				DF509BE0198D0687001E4E8C /* SwellAll.swift */,
+				DFF62911197C95950022A2E9 /* Swell.plist */,
+				DFF628ED197C938C0022A2E9 /* SwellOSXDemo2 */,
+				DFF62900197C938C0022A2E9 /* SwellOSXDemo2Tests */,
+				DFF628EC197C938C0022A2E9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DFF628EC197C938C0022A2E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFF628EB197C938C0022A2E9 /* SwellOSXDemo2.app */,
+				DFF628FD197C938C0022A2E9 /* SwellOSXDemo2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DFF628ED197C938C0022A2E9 /* SwellOSXDemo2 */ = {
+			isa = PBXGroup;
+			children = (
+				DFF628F2197C938C0022A2E9 /* AppDelegate.swift */,
+				DFF6290F197C95120022A2E9 /* Box.swift */,
+				DFF628F4197C938C0022A2E9 /* Images.xcassets */,
+				DFF628F6197C938C0022A2E9 /* MainMenu.xib */,
+				DFF628EE197C938C0022A2E9 /* Supporting Files */,
+			);
+			path = SwellOSXDemo2;
+			sourceTree = "<group>";
+		};
+		DFF628EE197C938C0022A2E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DFF628EF197C938C0022A2E9 /* Info.plist */,
+				DFF628F0197C938C0022A2E9 /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DFF62900197C938C0022A2E9 /* SwellOSXDemo2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DFF62903197C938C0022A2E9 /* SwellOSXDemo2Tests.swift */,
+				DFF62901197C938C0022A2E9 /* Supporting Files */,
+			);
+			path = SwellOSXDemo2Tests;
+			sourceTree = "<group>";
+		};
+		DFF62901197C938C0022A2E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DFF62902197C938C0022A2E9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DFF628EA197C938C0022A2E9 /* SwellOSXDemo2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFF62907197C938C0022A2E9 /* Build configuration list for PBXNativeTarget "SwellOSXDemo2" */;
+			buildPhases = (
+				DFF628E7197C938C0022A2E9 /* Sources */,
+				DFF628E8197C938C0022A2E9 /* Frameworks */,
+				DFF628E9197C938C0022A2E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwellOSXDemo2;
+			productName = SwellOSXDemo2;
+			productReference = DFF628EB197C938C0022A2E9 /* SwellOSXDemo2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DFF628FC197C938C0022A2E9 /* SwellOSXDemo2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFF6290A197C938C0022A2E9 /* Build configuration list for PBXNativeTarget "SwellOSXDemo2Tests" */;
+			buildPhases = (
+				DFF628F9197C938C0022A2E9 /* Sources */,
+				DFF628FA197C938C0022A2E9 /* Frameworks */,
+				DFF628FB197C938C0022A2E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFF628FF197C938C0022A2E9 /* PBXTargetDependency */,
+			);
+			name = SwellOSXDemo2Tests;
+			productName = SwellOSXDemo2Tests;
+			productReference = DFF628FD197C938C0022A2E9 /* SwellOSXDemo2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFF628E3197C938C0022A2E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Minute Apps LLC";
+				TargetAttributes = {
+					DFF628EA197C938C0022A2E9 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					DFF628FC197C938C0022A2E9 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = DFF628EA197C938C0022A2E9;
+					};
+				};
+			};
+			buildConfigurationList = DFF628E6197C938C0022A2E9 /* Build configuration list for PBXProject "SwellOSXDemo2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DFF628E2197C938C0022A2E9;
+			productRefGroup = DFF628EC197C938C0022A2E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DFF628EA197C938C0022A2E9 /* SwellOSXDemo2 */,
+				DFF628FC197C938C0022A2E9 /* SwellOSXDemo2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DFF628E9197C938C0022A2E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF628F5197C938C0022A2E9 /* Images.xcassets in Resources */,
+				DFF628F8197C938C0022A2E9 /* MainMenu.xib in Resources */,
+				DFF62912197C95950022A2E9 /* Swell.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF628FB197C938C0022A2E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DFF628E7197C938C0022A2E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF509BE1198D0687001E4E8C /* SwellAll.swift in Sources */,
+				DFF628F3197C938C0022A2E9 /* AppDelegate.swift in Sources */,
+				DFF62910197C95120022A2E9 /* Box.swift in Sources */,
+				DFF628F1197C938C0022A2E9 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF628F9197C938C0022A2E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF62904197C938C0022A2E9 /* SwellOSXDemo2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFF628FF197C938C0022A2E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFF628EA197C938C0022A2E9 /* SwellOSXDemo2 */;
+			targetProxy = DFF628FE197C938C0022A2E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DFF628F6197C938C0022A2E9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFF628F7197C938C0022A2E9 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DFF62905197C938C0022A2E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DFF62906197C938C0022A2E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DFF62908197C938C0022A2E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwellOSXDemo2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DFF62909197C938C0022A2E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwellOSXDemo2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DFF6290B197C938C0022A2E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwellOSXDemo2.app/Contents/MacOS/SwellOSXDemo2";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwellOSXDemo2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		DFF6290C197C938C0022A2E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwellOSXDemo2.app/Contents/MacOS/SwellOSXDemo2";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwellOSXDemo2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DFF628E6197C938C0022A2E9 /* Build configuration list for PBXProject "SwellOSXDemo2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFF62905197C938C0022A2E9 /* Debug */,
+				DFF62906197C938C0022A2E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFF62907197C938C0022A2E9 /* Build configuration list for PBXNativeTarget "SwellOSXDemo2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFF62908197C938C0022A2E9 /* Debug */,
+				DFF62909197C938C0022A2E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFF6290A197C938C0022A2E9 /* Build configuration list for PBXNativeTarget "SwellOSXDemo2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFF6290B197C938C0022A2E9 /* Debug */,
+				DFF6290C197C938C0022A2E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DFF628E3197C938C0022A2E9 /* Project object */;
+}

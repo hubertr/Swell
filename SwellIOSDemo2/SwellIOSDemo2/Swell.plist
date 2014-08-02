@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SWLLevel</key>
+	<string>debug</string>
+	<key>SecondViewController</key>
+	<dict>
+		<key>SWLFlexFormat</key>
+		<string>Level Date Line Message</string>
+		<key>SWLLevel</key>
+		<string>info</string>
+		<key>SWLLocation</key>
+		<string>console file</string>
+		<key>SWLLocationFilename</key>
+		<string>logs.txt</string>
+	</dict>
+</dict>
+</plist>
