@@ -88,7 +88,7 @@ public struct LogLevel {
 public protocol LogFormatter {
     
     /// Formats the message provided for the given logger
-    func formatLog<T>(logger: Logger, level: LogLevel, message: @auto_closure() -> T,
+    func formatLog<T>(logger: Logger, level: LogLevel, message: @autoclosure() -> T,
                       filename: String?, line: Int?,  function: String?) -> String;
     
     /// Returns an instance of this class given a configuration string
@@ -122,7 +122,7 @@ public class QuickFormatter: LogFormatter {
         self.format = format
     }
     
-    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @auto_closure() -> T,
+    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
                              filename: String?, line: Int?,  function: String?) -> String {
         var s: String;
         let message = givenMessage()
@@ -214,7 +214,7 @@ public class FlexFormatter: LogFormatter {
     }
     
 
-    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @auto_closure() -> T,
+    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
                              filename: String?, line: Int?,  function: String?) -> String {
         var logMessage = ""
         for (index, part) in enumerate(format) {
@@ -226,11 +226,11 @@ public class FlexFormatter: LogFormatter {
             case .LEVEL: logMessage += level.label
             case .DATE: logMessage += NSDate().description
             case .LINE:
-                if filename && line {
+                if (filename != nil) && (line != nil) {
                     logMessage += "[\(filename!.lastPathComponent):\(line!)]"
                 }
             case .FUNC:
-                if function {
+                if (function != nil) {
                     logMessage += "[\(function)()]"
                 }
             }
@@ -251,12 +251,12 @@ public class FlexFormatter: LogFormatter {
         let parts = formatString.uppercaseString.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         for part in parts {
             switch part {
-            case "MESSAGE": formatSpec += .MESSAGE
-            case "NAME": formatSpec += .NAME
-            case "LEVEL": formatSpec += .LEVEL
-            case "LINE": formatSpec += .LINE
-            case "FUNC": formatSpec += .FUNC
-            default: formatSpec += .DATE
+            case "MESSAGE": formatSpec += [.MESSAGE]
+            case "NAME": formatSpec += [.NAME]
+            case "LEVEL": formatSpec += [.LEVEL]
+            case "LINE": formatSpec += [.LINE]
+            case "FUNC": formatSpec += [.FUNC]
+            default: formatSpec += [.DATE]
             }
         }
         return FlexFormatter(parts: formatSpec)
@@ -294,7 +294,7 @@ public class FlexFormatter: LogFormatter {
 public protocol LogLocation {
     //class func getInstance(param: AnyObject? = nil) -> LogLocation
 
-    func log(message: @auto_closure() -> String);
+    func log(message: @autoclosure() -> String);
     
     func enable();
     
@@ -320,7 +320,7 @@ public class ConsoleLocation: LogLocation {
         return instance
     }
 
-    public func log(message: @auto_closure() -> String) {
+    public func log(message: @autoclosure() -> String) {
         if enabled {
             println(message())
         }
@@ -370,7 +370,7 @@ public class FileLocation: LogLocation {
         closeFile()
     }
     
-    public func log(message: @auto_closure() -> String) {
+    public func log(message: @autoclosure() -> String) {
         //message.writeToFile(filename, atomically: false, encoding: NSUTF8StringEncoding, error: nil);
         if (!enabled) {
             return
@@ -471,7 +471,7 @@ public class Logger {
     
     
     public func log<T>(logLevel: LogLevel,
-                        message: @auto_closure() -> T,
+                        message: @autoclosure() -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         if (self.enabled) && (logLevel.level >= level.level) {
             let logMessage = formatter.formatLog(self, level: logLevel, message: message,
@@ -486,32 +486,32 @@ public class Logger {
     //**********************************************************************
     // Main log methods
     
-    public func trace<T>(message: @auto_closure() -> T,
+    public func trace<T>(message: @autoclosure() -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.TRACE, message: message, filename: filename, line: line, function: function)
     }
     
-    public func debug<T>(message: @auto_closure() -> T,
+    public func debug<T>(message: @autoclosure() -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.DEBUG, message: message, filename: filename, line: line, function: function)
     }
     
-    public func info<T>(message: @auto_closure() -> T,
+    public func info<T>(message: @autoclosure() -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.INFO, message: message, filename: filename, line: line, function: function)
     }
     
-    public func warn<T>(message: @auto_closure() -> T,
+    public func warn<T>(message: @autoclosure() -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.WARN, message: message, filename: filename, line: line, function: function)
     }
     
-    public func error<T>(message: @auto_closure() -> T,
+    public func error<T>(message: @autoclosure() -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.ERROR, message: message, filename: filename, line: line, function: function)
     }
     
-    public func severe<T>(message: @auto_closure() -> T,
+    public func severe<T>(message: @autoclosure() -> T,
                           filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.SEVERE, message: message, filename: filename, line: line, function: function)
     }
@@ -759,12 +759,12 @@ public class Swell {
         // This configuration is used by the shared logger
         sharedConfiguration.formatter = QuickFormatter(format: .LevelMessage)
         sharedConfiguration.level = LogLevel.TRACE
-        sharedConfiguration.locations += ConsoleLocation.getInstance()
+        sharedConfiguration.locations += [ConsoleLocation.getInstance()]
 
         // The root configuration is where all other configurations are based off of
         rootConfiguration.formatter = QuickFormatter(format: .LevelNameMessage)
         rootConfiguration.level = LogLevel.TRACE
-        rootConfiguration.locations += ConsoleLocation.getInstance()
+        rootConfiguration.locations += [ConsoleLocation.getInstance()]
 
         readConfigurationFile()
     }
@@ -780,42 +780,42 @@ public class Swell {
     //========================================================================================
     // Global/convenience log methods used for quick logging
 
-    public class func trace<T>(message: @auto_closure() -> T) {
+    public class func trace<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.trace(message)
     }
     
-    public class func debug<T>(message: @auto_closure() -> T) {
+    public class func debug<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.debug(message)
     }
     
-    public class func info<T>(message: @auto_closure() -> T) {
+    public class func info<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.info(message)
     }
     
-    public class func warn<T>(message: @auto_closure() -> T) {
+    public class func warn<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.warn(message)
     }
     
-    public class func error<T>(message: @auto_closure() -> T) {
+    public class func error<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.error(message)
     }
     
-    public class func severe<T>(message: @auto_closure() -> T) {
+    public class func severe<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
@@ -915,7 +915,7 @@ public class Swell {
     /// Use this to get Logger instances for use in classes.
     func getLogger(name: String) -> Logger {
         var logger = allLoggers[name]
-        if (logger) {
+        if (logger != nil) {
             return logger!
         } else {
             let result: Logger = createLogger(name)
@@ -935,7 +935,7 @@ public class Swell {
         if config.locations.count > 1 {
             for (index,location) in enumerate(config.locations) {
                 if (index > 0) {
-                    result.locations += location
+                    result.locations += [location]
                 }
             }
         }
@@ -1016,7 +1016,7 @@ public class Swell {
         }
         
         var dict: NSDictionary? = nil;
-        if filename {
+        if filename != nil {
             dict = NSDictionary(contentsOfFile: filename)
         }
         if let map: Dictionary<String, AnyObject> = dict as? Dictionary<String, AnyObject> {
@@ -1106,7 +1106,7 @@ public class Swell {
         }
         
         if let location = givenLocation {
-            newConfiguration.locations += location
+            newConfiguration.locations += [location]
         } else if oldConfiguration?.locations.count > 0 {
             newConfiguration.locations = oldConfiguration!.locations
         }
@@ -1218,12 +1218,12 @@ public class Swell {
                     var filenameValue: AnyObject? = map["SWLLocationFilename"]
                     if let filename: AnyObject = filenameValue {
                         let fileLocation = getConfiguredFileLocation(configuration, item: filename);
-                        if fileLocation {
-                            results += fileLocation!
+                        if fileLocation != nil {
+                            results += [fileLocation!]
                         }
                     }
                 } else if (value == "console") {
-                    results += ConsoleLocation.getInstance()
+                    results += [ConsoleLocation.getInstance()]
                 } else {
                     println("Unrecognized location value in Swell.plist: '\(value)'")
                 }

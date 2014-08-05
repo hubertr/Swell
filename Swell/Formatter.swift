@@ -11,7 +11,7 @@
 public protocol LogFormatter {
     
     /// Formats the message provided for the given logger
-    func formatLog<T>(logger: Logger, level: LogLevel, message: @auto_closure() -> T,
+    func formatLog<T>(logger: Logger, level: LogLevel, message: @autoclosure() -> T,
                       filename: String?, line: Int?,  function: String?) -> String;
     
     /// Returns an instance of this class given a configuration string
@@ -45,7 +45,7 @@ public class QuickFormatter: LogFormatter {
         self.format = format
     }
     
-    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @auto_closure() -> T,
+    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
                              filename: String?, line: Int?,  function: String?) -> String {
         var s: String;
         let message = givenMessage()
@@ -137,7 +137,7 @@ public class FlexFormatter: LogFormatter {
     }
     
 
-    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @auto_closure() -> T,
+    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
                              filename: String?, line: Int?,  function: String?) -> String {
         var logMessage = ""
         for (index, part) in enumerate(format) {
@@ -149,11 +149,11 @@ public class FlexFormatter: LogFormatter {
             case .LEVEL: logMessage += level.label
             case .DATE: logMessage += NSDate().description
             case .LINE:
-                if filename && line {
+                if (filename != nil) && (line != nil) {
                     logMessage += "[\(filename!.lastPathComponent):\(line!)]"
                 }
             case .FUNC:
-                if function {
+                if (function != nil) {
                     logMessage += "[\(function)()]"
                 }
             }
@@ -174,12 +174,12 @@ public class FlexFormatter: LogFormatter {
         let parts = formatString.uppercaseString.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         for part in parts {
             switch part {
-            case "MESSAGE": formatSpec += .MESSAGE
-            case "NAME": formatSpec += .NAME
-            case "LEVEL": formatSpec += .LEVEL
-            case "LINE": formatSpec += .LINE
-            case "FUNC": formatSpec += .FUNC
-            default: formatSpec += .DATE
+            case "MESSAGE": formatSpec += [.MESSAGE]
+            case "NAME": formatSpec += [.NAME]
+            case "LEVEL": formatSpec += [.LEVEL]
+            case "LINE": formatSpec += [.LINE]
+            case "FUNC": formatSpec += [.FUNC]
+            default: formatSpec += [.DATE]
             }
         }
         return FlexFormatter(parts: formatSpec)

@@ -33,7 +33,7 @@ public class Logger {
     
     
     public func log<T>(logLevel: LogLevel,
-                        message: @auto_closure() -> T,
+                        message: @autoclosure() -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         if (self.enabled) && (logLevel.level >= level.level) {
             let logMessage = formatter.formatLog(self, level: logLevel, message: message,
@@ -48,32 +48,32 @@ public class Logger {
     //**********************************************************************
     // Main log methods
     
-    public func trace<T>(message: @auto_closure() -> T,
+    public func trace<T>(message: @autoclosure() -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.TRACE, message: message, filename: filename, line: line, function: function)
     }
     
-    public func debug<T>(message: @auto_closure() -> T,
+    public func debug<T>(message: @autoclosure() -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.DEBUG, message: message, filename: filename, line: line, function: function)
     }
     
-    public func info<T>(message: @auto_closure() -> T,
+    public func info<T>(message: @autoclosure() -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.INFO, message: message, filename: filename, line: line, function: function)
     }
     
-    public func warn<T>(message: @auto_closure() -> T,
+    public func warn<T>(message: @autoclosure() -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.WARN, message: message, filename: filename, line: line, function: function)
     }
     
-    public func error<T>(message: @auto_closure() -> T,
+    public func error<T>(message: @autoclosure() -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.ERROR, message: message, filename: filename, line: line, function: function)
     }
     
-    public func severe<T>(message: @auto_closure() -> T,
+    public func severe<T>(message: @autoclosure() -> T,
                           filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.SEVERE, message: message, filename: filename, line: line, function: function)
     }

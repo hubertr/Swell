@@ -49,12 +49,12 @@ public class Swell {
         // This configuration is used by the shared logger
         sharedConfiguration.formatter = QuickFormatter(format: .LevelMessage)
         sharedConfiguration.level = LogLevel.TRACE
-        sharedConfiguration.locations += ConsoleLocation.getInstance()
+        sharedConfiguration.locations += [ConsoleLocation.getInstance()]
 
         // The root configuration is where all other configurations are based off of
         rootConfiguration.formatter = QuickFormatter(format: .LevelNameMessage)
         rootConfiguration.level = LogLevel.TRACE
-        rootConfiguration.locations += ConsoleLocation.getInstance()
+        rootConfiguration.locations += [ConsoleLocation.getInstance()]
 
         readConfigurationFile()
     }
@@ -70,42 +70,42 @@ public class Swell {
     //========================================================================================
     // Global/convenience log methods used for quick logging
 
-    public class func trace<T>(message: @auto_closure() -> T) {
+    public class func trace<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.trace(message)
     }
     
-    public class func debug<T>(message: @auto_closure() -> T) {
+    public class func debug<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.debug(message)
     }
     
-    public class func info<T>(message: @auto_closure() -> T) {
+    public class func info<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.info(message)
     }
     
-    public class func warn<T>(message: @auto_closure() -> T) {
+    public class func warn<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.warn(message)
     }
     
-    public class func error<T>(message: @auto_closure() -> T) {
+    public class func error<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.error(message)
     }
     
-    public class func severe<T>(message: @auto_closure() -> T) {
+    public class func severe<T>(message: @autoclosure() -> T) {
         if (!globalSwell.swellLogger) {
             globalSwell.initInternalLogger()
         }
@@ -205,7 +205,7 @@ public class Swell {
     /// Use this to get Logger instances for use in classes.
     func getLogger(name: String) -> Logger {
         var logger = allLoggers[name]
-        if (logger) {
+        if (logger != nil) {
             return logger!
         } else {
             let result: Logger = createLogger(name)
@@ -225,7 +225,7 @@ public class Swell {
         if config.locations.count > 1 {
             for (index,location) in enumerate(config.locations) {
                 if (index > 0) {
-                    result.locations += location
+                    result.locations += [location]
                 }
             }
         }
@@ -306,7 +306,7 @@ public class Swell {
         }
         
         var dict: NSDictionary? = nil;
-        if filename {
+        if filename != nil {
             dict = NSDictionary(contentsOfFile: filename)
         }
         if let map: Dictionary<String, AnyObject> = dict as? Dictionary<String, AnyObject> {
@@ -396,7 +396,7 @@ public class Swell {
         }
         
         if let location = givenLocation {
-            newConfiguration.locations += location
+            newConfiguration.locations += [location]
         } else if oldConfiguration?.locations.count > 0 {
             newConfiguration.locations = oldConfiguration!.locations
         }
@@ -508,12 +508,12 @@ public class Swell {
                     var filenameValue: AnyObject? = map["SWLLocationFilename"]
                     if let filename: AnyObject = filenameValue {
                         let fileLocation = getConfiguredFileLocation(configuration, item: filename);
-                        if fileLocation {
-                            results += fileLocation!
+                        if fileLocation != nil {
+                            results += [fileLocation!]
                         }
                     }
                 } else if (value == "console") {
-                    results += ConsoleLocation.getInstance()
+                    results += [ConsoleLocation.getInstance()]
                 } else {
                     println("Unrecognized location value in Swell.plist: '\(value)'")
                 }
