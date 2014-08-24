@@ -95,7 +95,9 @@ public class FileLocation: LogLocation {
         let output = message() + "\n"
         if let handle = fileHandle {
             handle.seekToEndOfFile()
-            handle.writeData(output.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
+            if let data = output.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                handle.writeData(data)
+            }
         }
 
     }
@@ -111,10 +113,11 @@ public class FileLocation: LogLocation {
             return
         }
 
-        let dirs : [String]? = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String]
+        //let dirs : [String]? = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true) as? [String]
+        let dirs:AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
-        if let directories:[String] = dirs {
-            let dir = directories[0]; //documents directory
+        if let dir: String = dirs as? String {
+            //let dir = directories[0]; //documents directory
             let path = dir.stringByAppendingPathComponent(self.filename);
             self.filename = path;
         }
