@@ -18,7 +18,7 @@ public class SwellTestLocation: LogLocation {
         logged = false
         return result
     }
-    public func log(givenMessage: @auto_closure() -> String) {
+    public func log(givenMessage: @autoclosure() -> String) {
         logged = true
         message = givenMessage()
         //println(message)
