@@ -41,7 +41,7 @@ public struct LogLevel {
     }
     
     static func create(level: PredefinedLevel, name: String, label: String) -> LogLevel {
-        var result = LogLevel(level:level.toRaw(), name: name, label: label);
+        var result = LogLevel(level:level.rawValue, name: name, label: label);
         //let key =
         allLevels[result.level] = result
         return result
