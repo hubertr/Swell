@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>QuickDateFormatterTest</key>
+	<dict>
+		<key>SWLQuickFormat</key>
+		<string>DateMessage</string>
+		<key>SWLDateFormatter</key>
+		<string>MM-dd-yyyy-HH:mm:ss</string>
+	</dict>
+	<key>FlexDateFormatterTest</key>
+	<dict>
+		<key>SWLFlexFormat</key>
+		<string>DATE</string>
+		<key>SWLDateFormatter</key>
+		<string>dd-MM-yyyy-HH:mm:ss</string>
+	</dict>
+</dict>
+</plist>

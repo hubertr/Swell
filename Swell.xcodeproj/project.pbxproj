@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98A4F0981A7BB95300A64D4A /* Swell.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98A4F0971A7BB95300A64D4A /* Swell.plist */; };
 		DF0A055A1954EC4800E35A15 /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0A05591954EC4800E35A15 /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF0A05601954EC4800E35A15 /* Swell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0A05541954EC4800E35A15 /* Swell.framework */; };
 		DF0A05671954EC4800E35A15 /* SwellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05661954EC4800E35A15 /* SwellTests.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98A4F0971A7BB95300A64D4A /* Swell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Swell.plist; sourceTree = "<group>"; };
 		DF0A05541954EC4800E35A15 /* Swell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0A05581954EC4800E35A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF0A05591954EC4800E35A15 /* Swell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swell.h; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		DF0A05641954EC4800E35A15 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				98A4F0971A7BB95300A64D4A /* Swell.plist */,
 				DF0A05651954EC4800E35A15 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -266,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A4F0981A7BB95300A64D4A /* Swell.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
