@@ -350,6 +350,12 @@ class SwellTests: XCTestCase {
         println("Formatter \(formatter.description())")
     }
     
+    func testFlexFormatterOptionalFunction() {
+        let flex = FlexFormatter(parts: .FUNC, .MESSAGE)
+        let logger = Logger(name:"test", formatter: flex)
+        let message = flex.formatLog(logger, level: .INFO, message: "my message", filename: nil, line: nil, function: __FUNCTION__)
+        XCTAssertEqual(message, "[testFlexFormatterOptionalFunction()]: my message")
+    }
     
     func testFlexPerformance() {
         // This is an example of a performance test case.
