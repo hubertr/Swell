@@ -291,19 +291,15 @@ public class Swell {
     // Methods for reading the Swell.plist file
 
     func readConfigurationFile() {
-//        let dirs : [String]? = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String]
-//        
-//        var filename: String = ""
-//        if let directories:[String] = dirs {
-//            let dir = directories[0]; //documents directory
-//            let path = dir.stringByAppendingPathComponent("Swell.plist");
-//            filename = path;
-//        }
-
         var filename: String? = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist");
-        //if let bundle = NSBundle.mainBundle() {
-        //    filename = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist")
-        //}
+        if filename == nil {
+            for bundle in NSBundle.allBundles() {
+                filename = bundle.pathForResource("Swell", ofType: "plist");
+                if (filename != nil) {
+                    break
+                }
+            }
+        }
         
         var dict: NSDictionary? = nil;
         if let bundleFilename = filename {
@@ -462,6 +458,12 @@ public class Swell {
             }
         }
         
+        // Set a custom date formatter.
+        item = map["SWLDateFormatter"]
+        if let value: AnyObject = item {
+            configuration.formatter?.dateFormatter = getConfiguredDateFormatter(value)
+        }
+        
         // Set the location for the logs
         item = map["SWLLocation"]
         if let value: AnyObject = item {
@@ -523,6 +525,14 @@ public class Swell {
             }
         }
         return results
+    }
+    
+    func getConfiguredDateFormatter(item: AnyObject) -> NSDateFormatter {
+        let dateFormatter = NSDateFormatter()
+        if let formatString = item as? String {
+            dateFormatter.dateFormat = formatString
+        }
+        return dateFormatter
     }
     
 //    if ((key.hasPrefix("SWL")) && (key.hasSuffix("Format"))) {

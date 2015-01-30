@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98A4F09A1A7BC9C100A64D4A /* Swell.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98A4F0991A7BC9C100A64D4A /* Swell.plist */; };
+		98A4F09B1A7BC9C100A64D4A /* Swell.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98A4F0991A7BC9C100A64D4A /* Swell.plist */; };
+		98C589891A7B498A0008C4F4 /* SwellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05661954EC4800E35A15 /* SwellTests.swift */; };
 		DF0A055A1954EC4800E35A15 /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0A05591954EC4800E35A15 /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF0A05601954EC4800E35A15 /* Swell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0A05541954EC4800E35A15 /* Swell.framework */; };
 		DF0A05671954EC4800E35A15 /* SwellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05661954EC4800E35A15 /* SwellTests.swift */; };
@@ -16,6 +19,14 @@
 		DF65B8F2195C3CFF00F98E0C /* Swell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F1195C3CFF00F98E0C /* Swell.swift */; };
 		DF65B8F4195C3ECB00F98E0C /* LogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */; };
 		DF65B8F61963978300F98E0C /* LogSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F51963978300F98E0C /* LogSelector.swift */; };
+		FD83AF0A1A3738B30074D571 /* Swell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD83AEFF1A3738B30074D571 /* Swell.framework */; };
+		FD83AF181A3739050074D571 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77A2195531DD009E47AB /* Formatter.swift */; };
+		FD83AF191A3739050074D571 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05701954EC9A00E35A15 /* Logger.swift */; };
+		FD83AF1A1A3739050074D571 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05721954EDD700E35A15 /* LogLevel.swift */; };
+		FD83AF1B1A3739050074D571 /* LogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */; };
+		FD83AF1C1A3739050074D571 /* LogSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F51963978300F98E0C /* LogSelector.swift */; };
+		FD83AF1E1A3739050074D571 /* Swell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F1195C3CFF00F98E0C /* Swell.swift */; };
+		FD83AF1F1A3739700074D571 /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0A05591954EC4800E35A15 /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,9 +79,17 @@
 			remoteGlobalIDString = DF0A05531954EC4800E35A15;
 			remoteInfo = Swell;
 		};
+		FD83AF0B1A3738B30074D571 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF0A054B1954EC4800E35A15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD83AEFE1A3738B30074D571;
+			remoteInfo = "Swell-OSX";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98A4F0991A7BC9C100A64D4A /* Swell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Swell.plist; sourceTree = "<group>"; };
 		DF0A05541954EC4800E35A15 /* Swell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0A05581954EC4800E35A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF0A05591954EC4800E35A15 /* Swell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swell.h; sourceTree = "<group>"; };
@@ -83,6 +102,8 @@
 		DF65B8F1195C3CFF00F98E0C /* Swell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swell.swift; sourceTree = "<group>"; };
 		DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLocation.swift; sourceTree = "<group>"; };
 		DF65B8F51963978300F98E0C /* LogSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSelector.swift; sourceTree = "<group>"; };
+		FD83AEFF1A3738B30074D571 /* Swell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD83AF091A3738B30074D571 /* Swell-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swell-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +119,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF0A05601954EC4800E35A15 /* Swell.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD83AEFB1A3738B30074D571 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD83AF061A3738B30074D571 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD83AF0A1A3738B30074D571 /* Swell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +154,8 @@
 			children = (
 				DF0A05541954EC4800E35A15 /* Swell.framework */,
 				DF0A055F1954EC4800E35A15 /* SwellTests.xctest */,
+				FD83AEFF1A3738B30074D571 /* Swell.framework */,
+				FD83AF091A3738B30074D571 /* Swell-OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +195,7 @@
 		DF0A05641954EC4800E35A15 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				98A4F0991A7BC9C100A64D4A /* Swell.plist */,
 				DF0A05651954EC4800E35A15 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -170,6 +209,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF0A055A1954EC4800E35A15 /* Swell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD83AEFC1A3738B30074D571 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD83AF1F1A3739700074D571 /* Swell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +265,42 @@
 			productReference = DF0A055F1954EC4800E35A15 /* SwellTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FD83AEFE1A3738B30074D571 /* Swell-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD83AF161A3738B30074D571 /* Build configuration list for PBXNativeTarget "Swell-OSX" */;
+			buildPhases = (
+				FD83AEFA1A3738B30074D571 /* Sources */,
+				FD83AEFB1A3738B30074D571 /* Frameworks */,
+				FD83AEFC1A3738B30074D571 /* Headers */,
+				FD83AEFD1A3738B30074D571 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Swell-OSX";
+			productName = "Swell-OSX";
+			productReference = FD83AEFF1A3738B30074D571 /* Swell.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FD83AF081A3738B30074D571 /* Swell-OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD83AF171A3738B30074D571 /* Build configuration list for PBXNativeTarget "Swell-OSXTests" */;
+			buildPhases = (
+				FD83AF051A3738B30074D571 /* Sources */,
+				FD83AF061A3738B30074D571 /* Frameworks */,
+				FD83AF071A3738B30074D571 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD83AF0C1A3738B30074D571 /* PBXTargetDependency */,
+			);
+			name = "Swell-OSXTests";
+			productName = "Swell-OSXTests";
+			productReference = FD83AF091A3738B30074D571 /* Swell-OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -232,6 +315,12 @@
 					};
 					DF0A055E1954EC4800E35A15 = {
 						CreatedOnToolsVersion = 6.0;
+					};
+					FD83AEFE1A3738B30074D571 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					FD83AF081A3738B30074D571 = {
+						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
 			};
@@ -250,6 +339,8 @@
 			targets = (
 				DF0A05531954EC4800E35A15 /* Swell */,
 				DF0A055E1954EC4800E35A15 /* SwellTests */,
+				FD83AEFE1A3738B30074D571 /* Swell-OSX */,
+				FD83AF081A3738B30074D571 /* Swell-OSXTests */,
 			);
 		};
 /* End PBXProject section */
@@ -266,6 +357,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A4F09A1A7BC9C100A64D4A /* Swell.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD83AEFD1A3738B30074D571 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD83AF071A3738B30074D571 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98A4F09B1A7BC9C100A64D4A /* Swell.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +397,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF0A05671954EC4800E35A15 /* SwellTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD83AEFA1A3738B30074D571 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD83AF181A3739050074D571 /* Formatter.swift in Sources */,
+				FD83AF191A3739050074D571 /* Logger.swift in Sources */,
+				FD83AF1A1A3739050074D571 /* LogLevel.swift in Sources */,
+				FD83AF1B1A3739050074D571 /* LogLocation.swift in Sources */,
+				FD83AF1C1A3739050074D571 /* LogSelector.swift in Sources */,
+				FD83AF1E1A3739050074D571 /* Swell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD83AF051A3738B30074D571 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C589891A7B498A0008C4F4 /* SwellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +458,11 @@
 			isa = PBXTargetDependency;
 			target = DF0A05531954EC4800E35A15 /* Swell */;
 			targetProxy = DF9537C9197D879E00DA9171 /* PBXContainerItemProxy */;
+		};
+		FD83AF0C1A3738B30074D571 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD83AEFE1A3738B30074D571 /* Swell-OSX */;
+			targetProxy = FD83AF0B1A3738B30074D571 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -488,6 +621,92 @@
 			};
 			name = Release;
 		};
+		FD83AF121A3738B30074D571 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Swell/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_MODULE_NAME = Swell;
+				PRODUCT_NAME = Swell;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FD83AF131A3738B30074D571 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Swell/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_MODULE_NAME = Swell;
+				PRODUCT_NAME = Swell;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FD83AF141A3738B30074D571 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FD83AF151A3738B30074D571 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -514,6 +733,24 @@
 			buildConfigurations = (
 				DF0A056E1954EC4800E35A15 /* Debug */,
 				DF0A056F1954EC4800E35A15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD83AF161A3738B30074D571 /* Build configuration list for PBXNativeTarget "Swell-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD83AF121A3738B30074D571 /* Debug */,
+				FD83AF131A3738B30074D571 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD83AF171A3738B30074D571 /* Build configuration list for PBXNativeTarget "Swell-OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD83AF141A3738B30074D571 /* Debug */,
+				FD83AF151A3738B30074D571 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

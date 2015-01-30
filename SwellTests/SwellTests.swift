@@ -311,6 +311,37 @@ class SwellTests: XCTestCase {
         XCTAssertEqual(myClass.x, 3, "True")
     }
     
+    func testDefaultDateFormatter() {
+        func convertToIntRange(range: Range<String.Index>) -> Range<Int> {
+            var start: Int = distance(range.startIndex, range.startIndex)
+            var end: Int = distance(range.startIndex, range.endIndex)
+            return start..<end
+        }
+        let dateExample = "2005-01-30 13:24:35.012"
+        let regex = "^\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d.\\d\\d\\d"
+        
+        // First test QuickFormatter
+        let quickFormatter = QuickFormatter(format: .DateMessage)
+        let quickLogger = Logger(name: "", formatter:quickFormatter)
+        let quickMessage = quickFormatter.formatLog(quickLogger, level: .INFO, message: "", filename: nil, line: nil, function: nil)
+        let quickMatchedRange = quickMessage.rangeOfString(regex, options: .RegularExpressionSearch)
+        XCTAssertEqual(convertToIntRange(quickMatchedRange!), 0..<countElements(dateExample))
+
+        // Then test FlexFormatter
+        let flexFormatter = FlexFormatter(parts: .DATE)
+        let flexLogger = Logger(name: "", formatter: flexFormatter)
+        let flexMessage = flexFormatter.formatLog(flexLogger, level: .INFO, message: "", filename: nil, line: nil, function: nil)
+        let flexMatchedRange = flexMessage.rangeOfString(regex, options: .RegularExpressionSearch)
+        XCTAssertEqual(convertToIntRange(flexMatchedRange!), 0..<countElements(dateExample))
+    }
+    
+    func testCustomDateFormatter() {
+        // These two loggers are configured by Swell.plist under "SwellTests/Supporting Files".
+        let quickLogger = Swell.getLogger("QuickDateFormatterTest")
+        XCTAssertEqual(quickLogger.formatter.dateFormatter.dateFormat, "MM-dd-yyyy-HH:mm:ss")
+        let flexLogger = Swell.getLogger("FlexDateFormatterTest")
+        XCTAssertEqual(flexLogger.formatter.dateFormatter.dateFormat, "dd-MM-yyyy-HH:mm:ss")
+    }
     
     func testFlexFormatter() {
         var location = SwellTestLocation()
@@ -350,6 +381,12 @@ class SwellTests: XCTestCase {
         println("Formatter \(formatter.description())")
     }
     
+    func testFlexFormatterOptionalFunction() {
+        let flex = FlexFormatter(parts: .FUNC, .MESSAGE)
+        let logger = Logger(name:"test", formatter: flex)
+        let message = flex.formatLog(logger, level: .INFO, message: "my message", filename: nil, line: nil, function: __FUNCTION__)
+        XCTAssertEqual(message, "[testFlexFormatterOptionalFunction()]: my message")
+    }
     
     func testFlexPerformance() {
         // This is an example of a performance test case.
