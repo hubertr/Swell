@@ -19,8 +19,14 @@ public protocol LogFormatter {
     
     /// Returns a string useful for describing this class and how it is configured
     func description() -> String;
+    
+    /// Custom date formatter used when Date part is logged.
+    var dateFormatter: NSDateFormatter { get set }
 }
 
+
+/// Default date format used by QuickFormatter and FlexFormatter
+let DefaultDateFormat = "yyyy-MM-dd HH:mm:ss.SSS" // Same as NSLog date format.
 
 
 public enum QuickFormatterFormat: Int {
@@ -39,10 +45,13 @@ public enum QuickFormatterFormat: Int {
 /// because of its limited options.
 public class QuickFormatter: LogFormatter {
     
+    public var dateFormatter: NSDateFormatter
     let format: QuickFormatterFormat
     
     public init(format: QuickFormatterFormat = .LevelNameMessage) {
         self.format = format
+        self.dateFormatter = NSDateFormatter()
+        self.dateFormatter.dateFormat = DefaultDateFormat
     }
     
     public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
@@ -53,7 +62,7 @@ public class QuickFormatter: LogFormatter {
         case .LevelNameMessage:
             s = "\(level.label) \(logger.name): \(message)";
         case .DateLevelMessage:
-            s = "\(NSDate()) \(level.label): \(message)";
+            s = "\(self.dateFormatter.stringFromDate(NSDate())) \(level.label): \(message)";
         case .MessageOnly:
             s = "\(message)";
         case .NameMessage:
@@ -61,9 +70,9 @@ public class QuickFormatter: LogFormatter {
         case .LevelMessage:
             s = "\(level.label): \(message)";
         case .DateMessage:
-            s = "\(NSDate()) \(message)";
+            s = "\(self.dateFormatter.stringFromDate(NSDate())) \(message)";
         case .All:
-            s = "\(NSDate()) \(level.label) \(logger.name): \(message)";
+            s = "\(self.dateFormatter.stringFromDate(NSDate())) \(level.label) \(logger.name): \(message)";
         }
         return s
     }
@@ -119,21 +128,19 @@ public enum FlexFormatterPart: Int {
 /// FlexFormatter provides more control over the log format, allowing
 /// the flexibility to specify what data appears and on what order.
 public class FlexFormatter: LogFormatter {
+    public var dateFormatter: NSDateFormatter
     var format: [FlexFormatterPart]
     
-    public init(parts: FlexFormatterPart...) {
-        format = parts
-        // Same thing as below
-        //format = [FlexFormatterPart]()
-        //for part in parts {
-        //    format += part
-        //}
+    public convenience init(parts: FlexFormatterPart...) {
+        self.init(parts: parts)
     }
     
     /// This overload is needed (as of Beta 3) because 
     /// passing an array to a variadic param is not yet supported
-    init(parts: [FlexFormatterPart]) {
+    public init(parts: [FlexFormatterPart]) {
         format = parts
+        self.dateFormatter = NSDateFormatter()
+        self.dateFormatter.dateFormat = DefaultDateFormat
     }
     
 
@@ -147,7 +154,7 @@ public class FlexFormatter: LogFormatter {
                 logMessage += "\(message)"
             case .NAME: logMessage += logger.name
             case .LEVEL: logMessage += level.label
-            case .DATE: logMessage += NSDate().description
+            case .DATE: logMessage += self.dateFormatter.stringFromDate(NSDate())
             case .LINE:
                 if (filename != nil) && (line != nil) {
                     logMessage += "[\(filename!.lastPathComponent):\(line!)]"
