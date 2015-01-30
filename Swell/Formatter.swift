@@ -153,8 +153,8 @@ public class FlexFormatter: LogFormatter {
                     logMessage += "[\(filename!.lastPathComponent):\(line!)]"
                 }
             case .FUNC:
-                if (function != nil) {
-                    logMessage += "[\(function)()]"
+                if let function = function {
+                    logMessage += "[\(function)]"
                 }
             }
             
