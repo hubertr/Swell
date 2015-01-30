@@ -462,6 +462,12 @@ public class Swell {
             }
         }
         
+        // Set a custom date formatter.
+        item = map["SWLDateFormatter"]
+        if let value: AnyObject = item {
+            configuration.formatter?.dateFormatter = getConfiguredDateFormatter(value)
+        }
+        
         // Set the location for the logs
         item = map["SWLLocation"]
         if let value: AnyObject = item {
@@ -523,6 +529,14 @@ public class Swell {
             }
         }
         return results
+    }
+    
+    func getConfiguredDateFormatter(item: AnyObject) -> NSDateFormatter {
+        let dateFormatter = NSDateFormatter()
+        if let formatString = item as? String {
+            dateFormatter.dateFormat = formatString
+        }
+        return dateFormatter
     }
     
 //    if ((key.hasPrefix("SWL")) && (key.hasSuffix("Format"))) {
