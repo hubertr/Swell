@@ -41,7 +41,7 @@ public struct LogLevel {
     }
     
     static func create(level: PredefinedLevel, name: String, label: String) -> LogLevel {
-        var result = LogLevel(level:level.toRaw(), name: name, label: label);
+        var result = LogLevel(level:level.rawValue, name: name, label: label);
         //let key =
         allLevels[result.level] = result
         return result
@@ -379,7 +379,9 @@ public class FileLocation: LogLocation {
         let output = message() + "\n"
         if let handle = fileHandle {
             handle.seekToEndOfFile()
-            handle.writeData(output.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
+            if let data = output.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                handle.writeData(data)
+            }
         }
 
     }
@@ -395,10 +397,11 @@ public class FileLocation: LogLocation {
             return
         }
 
-        let dirs : [String]? = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String]
+        //let dirs : [String]? = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true) as? [String]
+        let dirs:AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
-        if let directories:[String] = dirs {
-            let dir = directories[0]; //documents directory
+        if let dir: String = dirs as? String {
+            //let dir = directories[0]; //documents directory
             let path = dir.stringByAppendingPathComponent(self.filename);
             self.filename = path;
         }
@@ -781,84 +784,84 @@ public class Swell {
     // Global/convenience log methods used for quick logging
 
     public class func trace<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.trace(message)
     }
     
     public class func debug<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.debug(message)
     }
     
     public class func info<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.info(message)
     }
     
     public class func warn<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.warn(message)
     }
     
     public class func error<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.error(message)
     }
     
     public class func severe<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.severe(message)
     }
 
     public class func trace(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.trace(fn)
     }
     
     public class func debug(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.debug(fn)
     }
     
     public class func info(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.info(fn)
     }
     
     public class func warn(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.warn(fn)
     }
     
     public class func error(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.error(fn)
     }
     
     public class func severe(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
+        if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.severe(fn)
@@ -1010,14 +1013,14 @@ public class Swell {
 //            filename = path;
 //        }
 
-        var filename: String? = nil;
-        if NSBundle.mainBundle() {
-            filename = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist")
-        }
+        var filename: String? = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist");
+        //if let bundle = NSBundle.mainBundle() {
+        //    filename = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist")
+        //}
         
         var dict: NSDictionary? = nil;
-        if filename != nil {
-            dict = NSDictionary(contentsOfFile: filename)
+        if let bundleFilename = filename {
+            dict = NSDictionary(contentsOfFile: bundleFilename)
         }
         if let map: Dictionary<String, AnyObject> = dict as? Dictionary<String, AnyObject> {
             
@@ -1166,6 +1169,9 @@ public class Swell {
             item = map["SWLFlexFormat"]
             if let value: AnyObject = item {
                 configuration.formatter = getConfiguredFlexFormatter(configuration, item: value);
+            } else {
+                let formatKey = getFormatKey(map)
+                println("formatKey=\(formatKey)")
             }
         }
         
@@ -1232,6 +1238,46 @@ public class Swell {
         return results
     }
     
+//    if ((key.hasPrefix("SWL")) && (key.hasSuffix("Format"))) {
+//    let start = advance(key.startIndex, 3)
+//    let end = advance(key.endIndex, -6)
+//    let result: String = key[start..<end]
+//    //println("result=\(result)")
+//    return result
+//    }
+
+    
+    func getFormatKey(map: Dictionary<String, AnyObject>) -> String? {
+        for (key, value) in map {
+            if ((key.hasPrefix("SWL")) && (key.hasSuffix("Format"))) {
+                let start = advance(key.startIndex, 3)
+                let end = advance(key.endIndex, -6)
+                let result: String = key[start..<end]
+                println("result=\(result)")
+                return result
+            }
+        }
+        
+        return nil;
+    }
+    
+
+    func getFunctionFormat(function: String) -> String {
+        var result = function;
+        if (result.hasPrefix("Optional(")) {
+            let len = countElements("Optional(")
+            let start = advance(result.startIndex, len)
+            let end = advance(result.endIndex, -len)
+            let range = start..<end
+            result = result[range]
+        }
+        if (!result.hasSuffix(")")) {
+            result = result + "()"
+        }
+        return result
+    }
+    
+
 
 }
 
