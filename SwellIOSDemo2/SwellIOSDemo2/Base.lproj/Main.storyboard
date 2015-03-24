@@ -126,7 +126,7 @@
                             <constraint firstItem="XQw-GP-oRk" firstAttribute="centerY" secondItem="2cR-ti-E5V" secondAttribute="centerY" id="urR-EW-Eew"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" selectedImage="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,7 +253,7 @@
                             <constraint firstItem="T35-U0-QNj" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" constant="198" id="yfW-QD-N9X"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" selectedImage="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
