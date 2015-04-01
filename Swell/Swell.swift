@@ -70,42 +70,42 @@ public class Swell {
     //========================================================================================
     // Global/convenience log methods used for quick logging
 
-    public class func trace<T>(message: @autoclosure() -> T) {
+    public class func trace<T>(@autoclosure message: () -> T) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.trace(message)
     }
     
-    public class func debug<T>(message: @autoclosure() -> T) {
+    public class func debug<T>(@autoclosure message: () -> T) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.debug(message)
     }
     
-    public class func info<T>(message: @autoclosure() -> T) {
+    public class func info<T>(@autoclosure message: () -> T) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.info(message)
     }
     
-    public class func warn<T>(message: @autoclosure() -> T) {
+    public class func warn<T>(@autoclosure message: () -> T) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.warn(message)
     }
     
-    public class func error<T>(message: @autoclosure() -> T) {
+    public class func error<T>(@autoclosure message: () -> T) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
         globalSwell.swellLogger.error(message)
     }
     
-    public class func severe<T>(message: @autoclosure() -> T) {
+    public class func severe<T>(@autoclosure message: () -> T) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
@@ -116,42 +116,42 @@ public class Swell {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
-        globalSwell.swellLogger.trace(fn)
+        globalSwell.swellLogger.trace(fn())
     }
     
     public class func debug(fn: () -> String) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
-        globalSwell.swellLogger.debug(fn)
+        globalSwell.swellLogger.debug(fn())
     }
     
     public class func info(fn: () -> String) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
-        globalSwell.swellLogger.info(fn)
+        globalSwell.swellLogger.info(fn())
     }
     
     public class func warn(fn: () -> String) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
-        globalSwell.swellLogger.warn(fn)
+        globalSwell.swellLogger.warn(fn())
     }
     
     public class func error(fn: () -> String) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
-        globalSwell.swellLogger.error(fn)
+        globalSwell.swellLogger.error(fn())
     }
     
     public class func severe(fn: () -> String) {
         if globalSwell.swellLogger == nil {
             globalSwell.initInternalLogger()
         }
-        globalSwell.swellLogger.severe(fn)
+        globalSwell.swellLogger.severe(fn())
     }
     
     //====================================================================================================
@@ -552,7 +552,7 @@ public class Swell {
     func getFunctionFormat(function: String) -> String {
         var result = function;
         if (result.hasPrefix("Optional(")) {
-            let len = countElements("Optional(")
+            let len = count("Optional(")
             let start = advance(result.startIndex, len)
             let end = advance(result.endIndex, -len)
             let range = start..<end

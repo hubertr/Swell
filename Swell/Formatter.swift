@@ -11,11 +11,11 @@
 public protocol LogFormatter {
     
     /// Formats the message provided for the given logger
-    func formatLog<T>(logger: Logger, level: LogLevel, message: @autoclosure() -> T,
+    func formatLog<T>(logger: Logger, level: LogLevel, @autoclosure message: () -> T,
                       filename: String?, line: Int?,  function: String?) -> String;
     
     /// Returns an instance of this class given a configuration string
-    class func logFormatterForString(formatString: String) -> LogFormatter;
+    static func logFormatterForString(formatString: String) -> LogFormatter;
     
     /// Returns a string useful for describing this class and how it is configured
     func description() -> String;
@@ -45,7 +45,7 @@ public class QuickFormatter: LogFormatter {
         self.format = format
     }
     
-    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
+    public func formatLog<T>(logger: Logger, level: LogLevel, @autoclosure message givenMessage: () -> T,
                              filename: String?, line: Int?,  function: String?) -> String {
         var s: String;
         let message = givenMessage()
@@ -137,7 +137,7 @@ public class FlexFormatter: LogFormatter {
     }
     
 
-    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
+    public func formatLog<T>(logger: Logger, level: LogLevel, @autoclosure message givenMessage: () -> T,
                              filename: String?, line: Int?,  function: String?) -> String {
         var logMessage = ""
         for (index, part) in enumerate(format) {
