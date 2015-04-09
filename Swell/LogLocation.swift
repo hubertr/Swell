@@ -10,7 +10,7 @@ import Foundation
 public protocol LogLocation {
     //class func getInstance(param: AnyObject? = nil) -> LogLocation
 
-    func log(message: @autoclosure() -> String);
+    func log(@autoclosure message: () -> String);
     
     func enable();
     
@@ -36,7 +36,7 @@ public class ConsoleLocation: LogLocation {
         return instance
     }
 
-    public func log(message: @autoclosure() -> String) {
+    public func log(@autoclosure message: () -> String) {
         if enabled {
             println(message())
         }
@@ -86,7 +86,7 @@ public class FileLocation: LogLocation {
         closeFile()
     }
     
-    public func log(message: @autoclosure() -> String) {
+    public func log(@autoclosure message: () -> String) {
         //message.writeToFile(filename, atomically: false, encoding: NSUTF8StringEncoding, error: nil);
         if (!enabled) {
             return
