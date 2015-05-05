@@ -41,7 +41,7 @@ public struct LogLevel {
     }
     
     static func create(level: PredefinedLevel, name: String, label: String) -> LogLevel {
-        var result = LogLevel(level:level.toRaw(), name: name, label: label);
+        var result = LogLevel(level:level.rawValue, name: name, label: label);
         //let key =
         allLevels[result.level] = result
         return result
@@ -88,11 +88,11 @@ public struct LogLevel {
 public protocol LogFormatter {
     
     /// Formats the message provided for the given logger
-    func formatLog<T>(logger: Logger, level: LogLevel, message: @autoclosure() -> T,
+    func formatLog<T>(logger: Logger, level: LogLevel, @autoclosure message: () -> T,
                       filename: String?, line: Int?,  function: String?) -> String;
     
     /// Returns an instance of this class given a configuration string
-    class func logFormatterForString(formatString: String) -> LogFormatter;
+    static func logFormatterForString(formatString: String) -> LogFormatter;
     
     /// Returns a string useful for describing this class and how it is configured
     func description() -> String;
@@ -122,7 +122,7 @@ public class QuickFormatter: LogFormatter {
         self.format = format
     }
     
-    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
+    public func formatLog<T>(logger: Logger, level: LogLevel, @autoclosure message givenMessage: () -> T,
                              filename: String?, line: Int?,  function: String?) -> String {
         var s: String;
         let message = givenMessage()
@@ -214,35 +214,51 @@ public class FlexFormatter: LogFormatter {
     }
     
 
-    public func formatLog<T>(logger: Logger, level: LogLevel, message givenMessage: @autoclosure() -> T,
-                             filename: String?, line: Int?,  function: String?) -> String {
-        var logMessage = ""
-        for (index, part) in enumerate(format) {
-            switch part {
-            case .MESSAGE:
-                let message = givenMessage()
-                logMessage += "\(message)"
-            case .NAME: logMessage += logger.name
-            case .LEVEL: logMessage += level.label
-            case .DATE: logMessage += NSDate().description
-            case .LINE:
-                if (filename != nil) && (line != nil) {
-                    logMessage += "[\(filename!.lastPathComponent):\(line!)]"
-                }
-            case .FUNC:
-                if (function != nil) {
-                    logMessage += "[\(function)()]"
-                }
-            }
-            
-            if (index < format.count-1) {
-                if (format[index+1] == .MESSAGE) {
-                    logMessage += ":"
-                }
-                logMessage += " "
-            }
+    func getFunctionFormat(function: String) -> String {
+        var result = function;
+        if (result.hasPrefix("Optional(")) {
+            let len = count("Optional(")
+            let start = advance(result.startIndex, len)
+            let end = advance(result.endIndex, -len)
+            let range = start..<end
+            result = result[range]
         }
-        return logMessage
+        if (!result.hasSuffix(")")) {
+            result = result + "()"
+        }
+        return result
+    }
+    
+    public func formatLog<T>(logger: Logger, level: LogLevel, @autoclosure message givenMessage: () -> T,
+        filename: String?, line: Int?,  function: String?) -> String {
+            var logMessage = ""
+            for (index, part) in enumerate(format) {
+                switch part {
+                case .MESSAGE:
+                    let message = givenMessage()
+                    logMessage += "\(message)"
+                case .NAME: logMessage += logger.name
+                case .LEVEL: logMessage += level.label
+                case .DATE: logMessage += NSDate().description
+                case .LINE:
+                    if (filename != nil) && (line != nil) {
+                        logMessage += "[\(filename!.lastPathComponent):\(line!)]"
+                    }
+                case .FUNC:
+                    if (function != nil) {
+                        let output = getFunctionFormat(function!)
+                        logMessage += "[\(output)]"
+                    }
+                }
+                
+                if (index < format.count-1) {
+                    if (format[index+1] == .MESSAGE) {
+                        logMessage += ":"
+                    }
+                    logMessage += " "
+                }
+            }
+            return logMessage
     }
    
 
@@ -294,7 +310,7 @@ public class FlexFormatter: LogFormatter {
 public protocol LogLocation {
     //class func getInstance(param: AnyObject? = nil) -> LogLocation
 
-    func log(message: @autoclosure() -> String);
+    func log(@autoclosure message: () -> String);
     
     func enable();
     
@@ -320,7 +336,7 @@ public class ConsoleLocation: LogLocation {
         return instance
     }
 
-    public func log(message: @autoclosure() -> String) {
+    public func log(@autoclosure message: () -> String) {
         if enabled {
             println(message())
         }
@@ -370,7 +386,7 @@ public class FileLocation: LogLocation {
         closeFile()
     }
     
-    public func log(message: @autoclosure() -> String) {
+    public func log(@autoclosure message: () -> String) {
         //message.writeToFile(filename, atomically: false, encoding: NSUTF8StringEncoding, error: nil);
         if (!enabled) {
             return
@@ -379,7 +395,9 @@ public class FileLocation: LogLocation {
         let output = message() + "\n"
         if let handle = fileHandle {
             handle.seekToEndOfFile()
-            handle.writeData(output.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
+            if let data = output.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                handle.writeData(data)
+            }
         }
 
     }
@@ -395,10 +413,11 @@ public class FileLocation: LogLocation {
             return
         }
 
-        let dirs : [String]? = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String]
+        //let dirs : [String]? = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true) as? [String]
+        let dirs:AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
-        if let directories:[String] = dirs {
-            let dir = directories[0]; //documents directory
+        if let dir: String = dirs as? String {
+            //let dir = directories[0]; //documents directory
             let path = dir.stringByAppendingPathComponent(self.filename);
             self.filename = path;
         }
@@ -471,7 +490,7 @@ public class Logger {
     
     
     public func log<T>(logLevel: LogLevel,
-                        message: @autoclosure() -> T,
+                        @autoclosure message: () -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         if (self.enabled) && (logLevel.level >= level.level) {
             let logMessage = formatter.formatLog(self, level: logLevel, message: message,
@@ -486,32 +505,32 @@ public class Logger {
     //**********************************************************************
     // Main log methods
     
-    public func trace<T>(message: @autoclosure() -> T,
+    public func trace<T>(@autoclosure message: () -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.TRACE, message: message, filename: filename, line: line, function: function)
     }
     
-    public func debug<T>(message: @autoclosure() -> T,
+    public func debug<T>(@autoclosure message: () -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.DEBUG, message: message, filename: filename, line: line, function: function)
     }
     
-    public func info<T>(message: @autoclosure() -> T,
+    public func info<T>(@autoclosure message: () -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.INFO, message: message, filename: filename, line: line, function: function)
     }
     
-    public func warn<T>(message: @autoclosure() -> T,
+    public func warn<T>(@autoclosure message: () -> T,
                         filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.WARN, message: message, filename: filename, line: line, function: function)
     }
     
-    public func error<T>(message: @autoclosure() -> T,
+    public func error<T>(@autoclosure message: () -> T,
                          filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.ERROR, message: message, filename: filename, line: line, function: function)
     }
     
-    public func severe<T>(message: @autoclosure() -> T,
+    public func severe<T>(@autoclosure message: () -> T,
                           filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
         self.log(.SEVERE, message: message, filename: filename, line: line, function: function)
     }
@@ -520,43 +539,50 @@ public class Logger {
     // Log methods that accepts closures - closures must accept no param and return a String
     
     public func log(logLevel: LogLevel,
-                    fn: () -> String,
-                    filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
-        
-        if (self.enabled) && (logLevel.level >= level.level) {
-            let message = fn()
-            self.log(logLevel, message: message)
-        }
+        filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__,
+        fn: () -> String) {
+            
+            if (self.enabled) && (logLevel.level >= level.level) {
+                let message = fn()
+                self.log(logLevel, message: message)
+            }
     }
     
-    public func trace(fn: () -> String,
-                      filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
-        log(.TRACE, fn: fn, filename: filename, line: line, function: function)
+    public func trace(
+        filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__,
+        fn: () -> String
+        ) {
+            log(.TRACE, filename: filename, line: line, function: function, fn: fn)
     }
     
-    public func debug(fn: () -> String,
-                      filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
-        log(.DEBUG, fn: fn, filename: filename, line: line, function: function)
+    public func debug(
+        filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__,
+        fn: () -> String) {
+            log(.DEBUG, filename: filename, line: line, function: function, fn: fn)
     }
     
-    public func info(fn: () -> String,
-                     filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
-        log(.INFO, fn: fn, filename: filename, line: line, function: function)
+    public func info(
+        filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__,
+        fn: () -> String) {
+            log(.INFO, filename: filename, line: line, function: function, fn: fn)
     }
     
-    public func warn(fn: () -> String,
-                     filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
-        log(.WARN, fn: fn, filename: filename, line: line, function: function)
+    public func warn(
+        filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__,
+        fn: () -> String) {
+            log(.WARN, filename: filename, line: line, function: function, fn: fn)
     }
     
-    public func error(fn: () -> String,
-                      filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
-        log(.ERROR, fn: fn, filename: filename, line: line, function: function)
+    public func error(
+        filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__,
+        fn: () -> String) {
+            log(.ERROR, filename: filename, line: line, function: function, fn: fn)
     }
     
-    public func severe(fn: () -> String,
-                       filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__) {
-        log(.SEVERE, fn: fn, filename: filename, line: line, function: function)
+    public func severe(
+        filename: String? = __FILE__, line: Int? = __LINE__,  function: String? = __FUNCTION__,
+        fn: () -> String) {
+            log(.SEVERE, filename: filename, line: line, function: function, fn: fn)
     }
     
     
@@ -564,7 +590,7 @@ public class Logger {
     // Methods to expose this functionality to Objective C code
     
     
-    public class func getLogger(name: String) -> Logger {
+    class func getLogger(name: String) -> Logger {
         return Logger(name: name);
     }
     
@@ -695,7 +721,7 @@ public class LogSelector {
         let temp = string.componentsSeparatedByString(",")
         for s: String in temp {
             // 'countElements(s)' returns s.length
-            if (countElements(s) > 0) {
+            if (count(s) > 0) {
                 result.append(s)
             }
             //if (s.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
@@ -746,7 +772,11 @@ let globalSwell = Swell();
 @objc
 public class Swell {
     
-    var swellLogger: Logger!;
+    lazy var swellLogger: Logger = {
+        let result = getLogger("Shared")
+        return result
+    }()
+
     var selector = LogSelector()
     var allLoggers = Dictionary<String, Logger>()
     var rootConfiguration = LoggerConfiguration(name: "ROOT")
@@ -754,7 +784,6 @@ public class Swell {
     var allConfigurations = Dictionary<String, LoggerConfiguration>()
     var enabled = true;
     
-
     init() {
         // This configuration is used by the shared logger
         sharedConfiguration.formatter = QuickFormatter(format: .LevelMessage)
@@ -769,99 +798,57 @@ public class Swell {
         readConfigurationFile()
     }
     
-    func initInternalLogger() {
-        //swellLogger = Logger(name: "SHARED", formatter: QuickFormatter(format: .LevelMessage))
-        swellLogger = getLogger("Shared")
-    }
-    
-    
     
 
     //========================================================================================
     // Global/convenience log methods used for quick logging
 
-    public class func trace<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
+    public class func trace<T>(@autoclosure message: () -> T) {
         globalSwell.swellLogger.trace(message)
     }
     
-    public class func debug<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
+    public class func debug<T>(@autoclosure message: () -> T) {
         globalSwell.swellLogger.debug(message)
     }
     
-    public class func info<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
+    public class func info<T>(@autoclosure message: () -> T) {
         globalSwell.swellLogger.info(message)
     }
     
-    public class func warn<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
+    public class func warn<T>(@autoclosure message: () -> T) {
         globalSwell.swellLogger.warn(message)
     }
     
-    public class func error<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
+    public class func error<T>(@autoclosure message: () -> T) {
         globalSwell.swellLogger.error(message)
     }
     
-    public class func severe<T>(message: @autoclosure() -> T) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
+    public class func severe<T>(@autoclosure message: () -> T) {
         globalSwell.swellLogger.severe(message)
     }
 
     public class func trace(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
-        globalSwell.swellLogger.trace(fn)
+        globalSwell.swellLogger.trace(fn())
     }
     
     public class func debug(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
-        globalSwell.swellLogger.debug(fn)
+        globalSwell.swellLogger.debug(fn())
     }
     
     public class func info(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
-        globalSwell.swellLogger.info(fn)
+        globalSwell.swellLogger.info(fn())
     }
     
     public class func warn(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
-        globalSwell.swellLogger.warn(fn)
+        globalSwell.swellLogger.warn(fn())
     }
     
     public class func error(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
-        globalSwell.swellLogger.error(fn)
+        globalSwell.swellLogger.error(fn())
     }
     
     public class func severe(fn: () -> String) {
-        if (!globalSwell.swellLogger) {
-            globalSwell.initInternalLogger()
-        }
-        globalSwell.swellLogger.severe(fn)
+        globalSwell.swellLogger.severe(fn())
     }
     
     //====================================================================================================
@@ -881,6 +868,10 @@ public class Swell {
     }
 
 
+    //====================================================================================================
+    // Internal methods serving the public methods
+    
+    
     func disableLogging() {
         enabled = false
         for (key, value) in allLoggers {
@@ -1001,23 +992,12 @@ public class Swell {
     // Methods for reading the Swell.plist file
 
     func readConfigurationFile() {
-//        let dirs : [String]? = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String]
-//        
-//        var filename: String = ""
-//        if let directories:[String] = dirs {
-//            let dir = directories[0]; //documents directory
-//            let path = dir.stringByAppendingPathComponent("Swell.plist");
-//            filename = path;
-//        }
 
-        var filename: String? = nil;
-        if NSBundle.mainBundle() {
-            filename = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist")
-        }
+        var filename: String? = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist");
         
         var dict: NSDictionary? = nil;
-        if filename != nil {
-            dict = NSDictionary(contentsOfFile: filename)
+        if let bundleFilename = filename {
+            dict = NSDictionary(contentsOfFile: bundleFilename)
         }
         if let map: Dictionary<String, AnyObject> = dict as? Dictionary<String, AnyObject> {
             
@@ -1166,6 +1146,9 @@ public class Swell {
             item = map["SWLFlexFormat"]
             if let value: AnyObject = item {
                 configuration.formatter = getConfiguredFlexFormatter(configuration, item: value);
+            } else {
+                let formatKey = getFormatKey(map)
+                println("formatKey=\(formatKey)")
             }
         }
         
@@ -1232,6 +1215,36 @@ public class Swell {
         return results
     }
     
+    func getFormatKey(map: Dictionary<String, AnyObject>) -> String? {
+        for (key, value) in map {
+            if ((key.hasPrefix("SWL")) && (key.hasSuffix("Format"))) {
+                let start = advance(key.startIndex, 3)
+                let end = advance(key.endIndex, -6)
+                let result: String = key[start..<end]
+                return result
+            }
+        }
+        
+        return nil;
+    }
+    
+
+    func getFunctionFormat(function: String) -> String {
+        var result = function;
+        if (result.hasPrefix("Optional(")) {
+            let len = count("Optional(")
+            let start = advance(result.startIndex, len)
+            let end = advance(result.endIndex, -len)
+            let range = start..<end
+            result = result[range]
+        }
+        if (!result.hasSuffix(")")) {
+            result = result + "()"
+        }
+        return result
+    }
+    
+
 
 }
 

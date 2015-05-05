@@ -348,6 +348,15 @@ class SwellTests: XCTestCase {
             XCTFail("Fail")
         }
         
+        formatter = FlexFormatter(parts: .MESSAGE, .LEVEL, .FUNC)
+        logger.formatter = formatter
+        logger.warn("Warn of this")
+        if let message = location._message {
+            XCTAssertEqual(message, "Warn of this  WARN [testFlexFormatter()]", "Pass")
+        } else {
+            XCTFail("Fail")
+        }
+        
         println("Formatter \(formatter.description())")
     }
     

@@ -56,6 +56,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "SwellTests.SwellTests.testLogger (SwellTests.SwellTests)() -&gt; ()"
                   moduleName = "SwellTests"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pt3mm/projects/Swell/SwellTests/SwellTests.swift"
                   timestampString = "426961630.941696"
                   startingColumnNumber = "9223372036854775807"
@@ -70,6 +71,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "SwellTests.SwellTests.(testLogger (SwellTests.SwellTests) -&gt; () -&gt; ()).(implicit closure #17)"
                   moduleName = "SwellTests"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pt3mm/projects/Swell/SwellTests/SwellTests.swift"
                   timestampString = "426961630.941878"
                   startingColumnNumber = "9223372036854775807"
@@ -110,6 +112,22 @@
             startingLineNumber = "21"
             endingLineNumber = "21"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swell/Swell.swift"
+            timestampString = "452493056.993876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "trace(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
