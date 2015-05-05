@@ -16,23 +16,23 @@
 public class LogSelector {
     
     public var enableRule: String = "" {
-    didSet {
-        enabled = parseCSV(enableRule)
-    }
+        didSet {
+            enabled = parseCSV(enableRule)
+        }
     }
     public var disableRule: String = "" {
-    didSet {
-        disabled = parseCSV(disableRule)
-    }
+        didSet {
+            disabled = parseCSV(disableRule)
+        }
     }
     
     public var enabled: [String] = [String]()
     public var disabled: [String] = [String]()
     
     public init() {
-
+        
     }
-
+    
     func shouldEnable(logger: Logger) -> Bool {
         let name = logger.name
         return shouldEnableLoggerWithName(name)
@@ -96,7 +96,7 @@ public class LogSelector {
         let temp = string.componentsSeparatedByString(",")
         for s: String in temp {
             // 'countElements(s)' returns s.length
-            if (countElements(s) > 0) {
+            if (count(s) > 0) {
                 result.append(s)
             }
             //if (s.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
@@ -106,7 +106,7 @@ public class LogSelector {
         return result
     }
     
-
+    
 }
 
 

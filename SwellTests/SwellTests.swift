@@ -12,15 +12,15 @@ import Swell
 
 public class SwellTestLocation: LogLocation {
     var logged: Bool = false
-    var message: String?
+    var _message: String?
     func wasLogged() -> Bool {
         let result = logged
         logged = false
         return result
     }
-    public func log(givenMessage: @auto_closure() -> String) {
+    public func log(@autoclosure message: () -> String) {
         logged = true
-        message = givenMessage()
+        _message = message()
         //println(message)
     }
     
@@ -30,6 +30,7 @@ public class SwellTestLocation: LogLocation {
         return "SwellTestLocation"
     }
 }
+
 
 class SwellTests: XCTestCase {
     
@@ -51,43 +52,43 @@ class SwellTests: XCTestCase {
         var logger = Logger(name: "TestLevel", level:.INFO, formatter: QuickFormatter(format: .MessageOnly), logLocation: location)
         
         logger.trace("Hello trace level");
-        if let message = location.message {
+        if let message = location._message {
             XCTFail("Should not have logged TRACE calls")
         }
         
         logger.debug("Hello debug level");
-        if let message = location.message {
+        if let message = location._message {
             XCTFail("Should not have logged DEBUG calls")
         }
 
         logger.info("Hello info level");
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "Hello info level", "Pass")
         } else {
             XCTFail("Should have logged INFO call")
         }
         
         logger.warn("Hello warn level");
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "Hello warn level", "Pass")
         } else {
             XCTFail("Should have logged WARN call")
         }
         logger.error("Hello error level");
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "Hello error level", "Pass")
         } else {
             XCTFail("Should have logged ERROR call")
         }
         logger.severe("Hello severe level");
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "Hello severe level", "Pass")
         } else {
             XCTFail("Should have logged SEVERE call")
         }
         
         logger.error(0);
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "0", "Pass")
         } else {
             XCTFail("Should have logged ERROR call")
@@ -95,14 +96,14 @@ class SwellTests: XCTestCase {
         
         let date = NSDate()
         logger.error(date);
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(date.description, message, "Pass")
         } else {
             XCTFail("Should have logged ERROR call")
         }
         
         logger.error(12.234);
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "12.234", "Pass")
         } else {
             XCTFail("Should have logged ERROR call")
@@ -110,7 +111,7 @@ class SwellTests: XCTestCase {
 
         var customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
         logger.log(customLevel, message: [0, 0, 1]);
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "[0, 0, 1]", "Pass")
         } else {
             XCTFail("Should have logged level 450 call")
@@ -320,7 +321,7 @@ class SwellTests: XCTestCase {
         logger.info("Log this")
         
         println("Formatter \(formatter.description())")
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "TestFlexFormatter: Log this", "Pass")
         } else {
             XCTFail("Fail")
@@ -330,7 +331,7 @@ class SwellTests: XCTestCase {
         formatter = FlexFormatter(parts: .LEVEL, .NAME, .MESSAGE)
         logger.formatter = formatter
         logger.warn("Warn of this")
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, " WARN TestFlexFormatter: Warn of this", "Pass")
         } else {
             XCTFail("Fail")
@@ -341,7 +342,7 @@ class SwellTests: XCTestCase {
         formatter = FlexFormatter(parts: .MESSAGE, .LEVEL, .NAME)
         logger.formatter = formatter
         logger.warn("Warn of this")
-        if let message = location.message {
+        if let message = location._message {
             XCTAssertEqual(message, "Warn of this  WARN TestFlexFormatter", "Pass")
         } else {
             XCTFail("Fail")

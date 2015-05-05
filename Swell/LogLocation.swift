@@ -9,8 +9,8 @@ import Foundation
 
 public protocol LogLocation {
     //class func getInstance(param: AnyObject? = nil) -> LogLocation
-
-    func log(message: @autoclosure() -> String);
+    
+    func log(@autoclosure message: () -> String);
     
     func enable();
     
@@ -31,12 +31,12 @@ public class ConsoleLocation: LogLocation {
         }
         return Static.internalInstance
     }
-
+    
     public class func getInstance() -> LogLocation {
         return instance
     }
-
-    public func log(message: @autoclosure() -> String) {
+    
+    public func log(@autoclosure message: () -> String) {
         if enabled {
             println(message())
         }
@@ -74,7 +74,7 @@ public class FileLocation: LogLocation {
         }
     }
     
-
+    
     init(filename: String) {
         self.filename = filename
         self.setDirectory()
@@ -86,7 +86,7 @@ public class FileLocation: LogLocation {
         closeFile()
     }
     
-    public func log(message: @autoclosure() -> String) {
+    public func log(@autoclosure message: () -> String) {
         //message.writeToFile(filename, atomically: false, encoding: NSUTF8StringEncoding, error: nil);
         if (!enabled) {
             return
@@ -99,7 +99,7 @@ public class FileLocation: LogLocation {
                 handle.writeData(data)
             }
         }
-
+        
     }
     
     func setDirectory() {
@@ -112,10 +112,10 @@ public class FileLocation: LogLocation {
             
             return
         }
-
+        
         //let dirs : [String]? = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true) as? [String]
         let dirs:AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-    
+        
         if let dir: String = dirs as? String {
             //let dir = directories[0]; //documents directory
             let path = dir.stringByAppendingPathComponent(self.filename);
