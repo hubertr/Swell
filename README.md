@@ -11,6 +11,10 @@ A logging utility for Swift and Objective C.
 * Log to the console, text file, or a custom location
 * Log message isn't computed when logging is disabled (thanks to the @auto_closure feature)
 
+##Maintenance Note
+
+I actively use this for my own projects, and every new project I create includes this.  It works well for my needs. However, I develop iOS apps only in my spare time, which is not a lot.  This can affect my response time to pull requests.
+
 ##Basic Usage
 
 ###Using the shared logger
