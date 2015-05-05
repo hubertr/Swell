@@ -63,11 +63,11 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
         Swell.disableLogging()
     }
     
-    public func applicationDidFinishLaunching(aNotification: NSNotification?) {
+    public func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
     }
 
-    public func applicationWillTerminate(aNotification: NSNotification?) {
+    public func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
 
