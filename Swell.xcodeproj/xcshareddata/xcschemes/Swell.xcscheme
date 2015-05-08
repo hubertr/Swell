@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0600"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Swell.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DF0A055E1954EC4800E35A15"
+               BuildableName = "SwellTests.xctest"
+               BlueprintName = "SwellTests"
+               ReferencedContainer = "container:Swell.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -35,16 +49,6 @@
                BlueprintIdentifier = "DF0A055E1954EC4800E35A15"
                BuildableName = "SwellTests.xctest"
                BlueprintName = "SwellTests"
-               ReferencedContainer = "container:Swell.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF483239197D8A1800F490CA"
-               BuildableName = "Swell Tests.xctest"
-               BlueprintName = "Swell Tests"
                ReferencedContainer = "container:Swell.xcodeproj">
             </BuildableReference>
          </TestableReference>
