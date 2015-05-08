@@ -113,10 +113,9 @@
 		DF0A054A1954EC4800E35A15 = {
 			isa = PBXGroup;
 			children = (
-				FA5B93281AFCBDBA00402C5A /* UIKit.framework */,
-				FA5B93261AFCBDA600402C5A /* Foundation.framework */,
 				DF0A05561954EC4800E35A15 /* Swell */,
 				DF0A05631954EC4800E35A15 /* SwellTests */,
+				FA5B932A1AFCBE4B00402C5A /* Frameworks */,
 				DF0A05551954EC4800E35A15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,6 +167,15 @@
 				DF0A05651954EC4800E35A15 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA5B932A1AFCBE4B00402C5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA5B93281AFCBDBA00402C5A /* UIKit.framework */,
+				FA5B93261AFCBDA600402C5A /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
