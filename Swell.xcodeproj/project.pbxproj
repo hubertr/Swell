@@ -16,6 +16,8 @@
 		DF65B8F2195C3CFF00F98E0C /* Swell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F1195C3CFF00F98E0C /* Swell.swift */; };
 		DF65B8F4195C3ECB00F98E0C /* LogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */; };
 		DF65B8F61963978300F98E0C /* LogSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F51963978300F98E0C /* LogSelector.swift */; };
+		FA5B93271AFCBDA600402C5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B93261AFCBDA600402C5A /* Foundation.framework */; };
+		FA5B93291AFCBDBA00402C5A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B93281AFCBDBA00402C5A /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		DF65B8F1195C3CFF00F98E0C /* Swell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swell.swift; sourceTree = "<group>"; };
 		DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLocation.swift; sourceTree = "<group>"; };
 		DF65B8F51963978300F98E0C /* LogSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSelector.swift; sourceTree = "<group>"; };
+		FA5B93261AFCBDA600402C5A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA5B93281AFCBDBA00402C5A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5B93271AFCBDA600402C5A /* Foundation.framework in Frameworks */,
+				FA5B93291AFCBDBA00402C5A /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +115,7 @@
 			children = (
 				DF0A05561954EC4800E35A15 /* Swell */,
 				DF0A05631954EC4800E35A15 /* SwellTests */,
+				FA5B932A1AFCBE4B00402C5A /* Frameworks */,
 				DF0A05551954EC4800E35A15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -160,6 +167,15 @@
 				DF0A05651954EC4800E35A15 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA5B932A1AFCBE4B00402C5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA5B93281AFCBDBA00402C5A /* UIKit.framework */,
+				FA5B93261AFCBDA600402C5A /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,7 +413,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -429,7 +445,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Swell/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_MODULE_NAME = Swell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -448,7 +464,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Swell/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_MODULE_NAME = Swell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
