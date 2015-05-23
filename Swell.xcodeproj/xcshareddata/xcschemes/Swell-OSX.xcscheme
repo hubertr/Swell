@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0640"
+   LastUpgradeVersion = "0630"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF0A05531954EC4800E35A15"
+               BlueprintIdentifier = "1DED2D8E1B10A826006DF7E7"
                BuildableName = "Swell.framework"
-               BlueprintName = "Swell-iOS"
-               ReferencedContainer = "container:Swell.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF0A055E1954EC4800E35A15"
-               BuildableName = "SwellTests.xctest"
-               BlueprintName = "SwellTests"
+               BlueprintName = "Swell-OSX"
                ReferencedContainer = "container:Swell.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,26 +28,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF0A055E1954EC4800E35A15"
-               BuildableName = "SwellTests.xctest"
-               BlueprintName = "SwellTests"
-               ReferencedContainer = "container:Swell.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF0A05531954EC4800E35A15"
-            BuildableName = "Swell.framework"
-            BlueprintName = "Swell-iOS"
-            ReferencedContainer = "container:Swell.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -75,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF0A05531954EC4800E35A15"
+            BlueprintIdentifier = "1DED2D8E1B10A826006DF7E7"
             BuildableName = "Swell.framework"
-            BlueprintName = "Swell-iOS"
+            BlueprintName = "Swell-OSX"
             ReferencedContainer = "container:Swell.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF0A05531954EC4800E35A15"
+            BlueprintIdentifier = "1DED2D8E1B10A826006DF7E7"
             BuildableName = "Swell.framework"
-            BlueprintName = "Swell-iOS"
+            BlueprintName = "Swell-OSX"
             ReferencedContainer = "container:Swell.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
