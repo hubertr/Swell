@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DED2D901B10A826006DF7E7 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77A2195531DD009E47AB /* Formatter.swift */; };
+		1DED2D911B10A826006DF7E7 /* LogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */; };
+		1DED2D921B10A826006DF7E7 /* Swell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F1195C3CFF00F98E0C /* Swell.swift */; };
+		1DED2D931B10A826006DF7E7 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05721954EDD700E35A15 /* LogLevel.swift */; };
+		1DED2D941B10A826006DF7E7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05701954EC9A00E35A15 /* Logger.swift */; };
+		1DED2D951B10A826006DF7E7 /* LogSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F51963978300F98E0C /* LogSelector.swift */; };
+		1DED2D971B10A826006DF7E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B93261AFCBDA600402C5A /* Foundation.framework */; };
+		1DED2D9A1B10A826006DF7E7 /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0A05591954EC4800E35A15 /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF0A055A1954EC4800E35A15 /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0A05591954EC4800E35A15 /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF0A05601954EC4800E35A15 /* Swell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0A05541954EC4800E35A15 /* Swell.framework */; };
 		DF0A05671954EC4800E35A15 /* SwellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05661954EC4800E35A15 /* SwellTests.swift */; };
@@ -17,7 +25,6 @@
 		DF65B8F4195C3ECB00F98E0C /* LogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */; };
 		DF65B8F61963978300F98E0C /* LogSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F51963978300F98E0C /* LogSelector.swift */; };
 		FA5B93271AFCBDA600402C5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B93261AFCBDA600402C5A /* Foundation.framework */; };
-		FA5B93291AFCBDBA00402C5A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B93281AFCBDBA00402C5A /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DED2D9F1B10A826006DF7E7 /* Swell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0A05541954EC4800E35A15 /* Swell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0A05581954EC4800E35A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF0A05591954EC4800E35A15 /* Swell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swell.h; sourceTree = "<group>"; };
@@ -90,12 +98,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1DED2D961B10A826006DF7E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DED2D971B10A826006DF7E7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF0A05501954EC4800E35A15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FA5B93271AFCBDA600402C5A /* Foundation.framework in Frameworks */,
-				FA5B93291AFCBDBA00402C5A /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +140,7 @@
 			children = (
 				DF0A05541954EC4800E35A15 /* Swell.framework */,
 				DF0A055F1954EC4800E35A15 /* SwellTests.xctest */,
+				1DED2D9F1B10A826006DF7E7 /* Swell.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,6 +197,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1DED2D991B10A826006DF7E7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DED2D9A1B10A826006DF7E7 /* Swell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF0A05511954EC4800E35A15 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,9 +216,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DF0A05531954EC4800E35A15 /* Swell */ = {
+		1DED2D8E1B10A826006DF7E7 /* Swell-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF0A056A1954EC4800E35A15 /* Build configuration list for PBXNativeTarget "Swell" */;
+			buildConfigurationList = 1DED2D9C1B10A826006DF7E7 /* Build configuration list for PBXNativeTarget "Swell-OSX" */;
+			buildPhases = (
+				1DED2D8F1B10A826006DF7E7 /* Sources */,
+				1DED2D961B10A826006DF7E7 /* Frameworks */,
+				1DED2D991B10A826006DF7E7 /* Headers */,
+				1DED2D9B1B10A826006DF7E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Swell-OSX";
+			productName = Swell;
+			productReference = 1DED2D9F1B10A826006DF7E7 /* Swell.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DF0A05531954EC4800E35A15 /* Swell-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF0A056A1954EC4800E35A15 /* Build configuration list for PBXNativeTarget "Swell-iOS" */;
 			buildPhases = (
 				DF0A054F1954EC4800E35A15 /* Sources */,
 				DF0A05501954EC4800E35A15 /* Frameworks */,
@@ -205,7 +247,7 @@
 			);
 			dependencies = (
 			);
-			name = Swell;
+			name = "Swell-iOS";
 			productName = Swell;
 			productReference = DF0A05541954EC4800E35A15 /* Swell.framework */;
 			productType = "com.apple.product-type.framework";
@@ -264,13 +306,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DF0A05531954EC4800E35A15 /* Swell */,
+				DF0A05531954EC4800E35A15 /* Swell-iOS */,
 				DF0A055E1954EC4800E35A15 /* SwellTests */,
+				1DED2D8E1B10A826006DF7E7 /* Swell-OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1DED2D9B1B10A826006DF7E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF0A05521954EC4800E35A15 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,6 +338,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1DED2D8F1B10A826006DF7E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DED2D901B10A826006DF7E7 /* Formatter.swift in Sources */,
+				1DED2D911B10A826006DF7E7 /* LogLocation.swift in Sources */,
+				1DED2D921B10A826006DF7E7 /* Swell.swift in Sources */,
+				1DED2D931B10A826006DF7E7 /* LogLevel.swift in Sources */,
+				1DED2D941B10A826006DF7E7 /* Logger.swift in Sources */,
+				1DED2D951B10A826006DF7E7 /* LogSelector.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF0A054F1954EC4800E35A15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,42 +377,81 @@
 /* Begin PBXTargetDependency section */
 		DF0A05621954EC4800E35A15 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF0A05611954EC4800E35A15 /* PBXContainerItemProxy */;
 		};
 		DF483231197D89E200F490CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF483230197D89E200F490CA /* PBXContainerItemProxy */;
 		};
 		DF483233197D89E200F490CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF483232197D89E200F490CA /* PBXContainerItemProxy */;
 		};
 		DF483235197D89E600F490CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF483234197D89E600F490CA /* PBXContainerItemProxy */;
 		};
 		DF9537C6197D878400DA9171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF9537C5197D878400DA9171 /* PBXContainerItemProxy */;
 		};
 		DF9537C8197D878400DA9171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF9537C7197D878400DA9171 /* PBXContainerItemProxy */;
 		};
 		DF9537CA197D879E00DA9171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF9537C9197D879E00DA9171 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1DED2D9D1B10A826006DF7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Swell/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_MODULE_NAME = Swell;
+				PRODUCT_NAME = Swell;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1DED2D9E1B10A826006DF7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Swell/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_MODULE_NAME = Swell;
+				PRODUCT_NAME = Swell;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		DF0A05681954EC4800E35A15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -448,7 +550,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_MODULE_NAME = Swell;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Swell;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -467,7 +569,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_MODULE_NAME = Swell;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Swell;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -507,6 +609,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1DED2D9C1B10A826006DF7E7 /* Build configuration list for PBXNativeTarget "Swell-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DED2D9D1B10A826006DF7E7 /* Debug */,
+				1DED2D9E1B10A826006DF7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DF0A054E1954EC4800E35A15 /* Build configuration list for PBXProject "Swell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -516,7 +627,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF0A056A1954EC4800E35A15 /* Build configuration list for PBXNativeTarget "Swell" */ = {
+		DF0A056A1954EC4800E35A15 /* Build configuration list for PBXNativeTarget "Swell-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF0A056B1954EC4800E35A15 /* Debug */,
