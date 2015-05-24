@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DED2D8E1B10A826006DF7E7"
-               BuildableName = "Swell.framework"
+               BlueprintIdentifier = "1DED2DB11B11C210006DF7E7"
+               BuildableName = "Swell-OSX.framework"
                BlueprintName = "Swell-OSX"
                ReferencedContainer = "container:Swell.xcodeproj">
             </BuildableReference>
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1DED2D8E1B10A826006DF7E7"
-            BuildableName = "Swell.framework"
+            BlueprintIdentifier = "1DED2DB11B11C210006DF7E7"
+            BuildableName = "Swell-OSX.framework"
             BlueprintName = "Swell-OSX"
             ReferencedContainer = "container:Swell.xcodeproj">
          </BuildableReference>
@@ -60,8 +60,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1DED2D8E1B10A826006DF7E7"
-            BuildableName = "Swell.framework"
+            BlueprintIdentifier = "1DED2DB11B11C210006DF7E7"
+            BuildableName = "Swell-OSX.framework"
             BlueprintName = "Swell-OSX"
             ReferencedContainer = "container:Swell.xcodeproj">
          </BuildableReference>
