@@ -46,17 +46,17 @@ class SwellTests: XCTestCase {
     
     func testLoggerAndLevel() {
         //var d = Swell.dummy
-        var location = SwellTestLocation()
+        let location = SwellTestLocation()
         
-        var logger = Logger(name: "TestLevel", level:.INFO, formatter: QuickFormatter(format: .MessageOnly), logLocation: location)
+        let logger = Logger(name: "TestLevel", level:.INFO, formatter: QuickFormatter(format: .MessageOnly), logLocation: location)
         
         logger.trace("Hello trace level");
-        if let message = location.message {
+        if location.message != nil {
             XCTFail("Should not have logged TRACE calls")
         }
         
         logger.debug("Hello debug level");
-        if let message = location.message {
+        if location.message != nil {
             XCTFail("Should not have logged DEBUG calls")
         }
 
@@ -108,7 +108,7 @@ class SwellTests: XCTestCase {
             XCTFail("Should have logged ERROR call")
         }
 
-        var customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
+        let customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
         logger.log(customLevel, message: [0, 0, 1]);
         if let message = location.message {
             XCTAssertEqual(message, "[0, 0, 1]", "Pass")
@@ -124,9 +124,9 @@ class SwellTests: XCTestCase {
     // This test doesn't make assertions - I'm just using this to manually test file output
     func testFileLogger() {
         
-        var location: LogLocation = FileLocation.getInstance("log.txt");
+        let location: LogLocation = FileLocation.getInstance("log.txt");
         //location = ConsoleLocation();
-        var logger = Logger(name: "FileTester", level: .TRACE, logLocation: location);
+        let logger = Logger(name: "FileTester", level: .TRACE, logLocation: location);
         logger.trace("Hello trace level");
         logger.debug("Hello debug level");
         logger.info("Hello info level");
@@ -136,7 +136,7 @@ class SwellTests: XCTestCase {
         logger.error(0);
         logger.error(NSDate());
         logger.error(12.234);
-        var customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
+        let customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
         logger.log(customLevel, message: [0, 0, 1]);
         //XCTAssert(true, "Pass")
         
@@ -162,7 +162,7 @@ class SwellTests: XCTestCase {
     // This test doesn't make assertions yet
     func testSwellGetLogger() {
         
-        var logger = Swell.getLogger("SwellTester")
+        let logger = Swell.getLogger("SwellTester")
         // TODO
         logger.trace("Hello trace level");
         logger.debug("Hello debug level");
@@ -174,7 +174,7 @@ class SwellTests: XCTestCase {
         logger.error(0);
         logger.error(NSDate());
         logger.error(12.234);
-        var customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
+        let customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
         logger.log(customLevel, message: [0, 0, 1]);
         //XCTAssert(true, "Pass")
         
@@ -182,7 +182,7 @@ class SwellTests: XCTestCase {
     
     func testClosureLogger() {
         
-        var logger = Swell.getLogger("Closure")
+        let logger = Swell.getLogger("Closure")
         logger.level = .INFO
         var wasLogged: Bool = false
         logger.trace {
@@ -215,7 +215,7 @@ class SwellTests: XCTestCase {
     // This test doesn't make assertions yet
     func testSwellGetFileLogger() {
         
-        var logger = Swell.getLogger("SwellFileTester")
+        let logger = Swell.getLogger("SwellFileTester")
         logger.trace("Hello trace level");
         logger.debug("Hello debug level");
         logger.info("Hello info level");
@@ -226,7 +226,7 @@ class SwellTests: XCTestCase {
         logger.error(0);
         logger.error(NSDate());
         logger.error(12.234);
-        var customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
+        let customLevel = LogLevel(level: 450, name: "custom", label: "CUSTOM");
         logger.log(customLevel, message: [0, 0, 1]);
         XCTAssert(true, "Pass")
         
@@ -234,7 +234,7 @@ class SwellTests: XCTestCase {
     
     
     func testLogSelectorParsing() {
-        var selector = LogSelector()
+        let selector = LogSelector()
         selector.enableRule = "a,b,c";
         XCTAssertEqual(selector.enabled.count, 3, "Pass")
         
@@ -249,7 +249,7 @@ class SwellTests: XCTestCase {
     }
     
     func testLogSelector() {
-        var ls = LogSelector()
+        let ls = LogSelector()
         XCTAssert(ls.shouldEnableLoggerWithName("aaa"))
         
         ls.enableRule = "aaa,bbb"
@@ -278,7 +278,7 @@ class SwellTests: XCTestCase {
     // This test doesn't make assertions yet    
     func testObjC() {
         
-        var logger = Logger(name: "Tester")
+        let logger = Logger(name: "Tester")
         logger.traceMessage("Hello trace level");
         logger.debugMessage("Hello debug level");
         logger.infoMessage("Hello info level");
@@ -313,13 +313,13 @@ class SwellTests: XCTestCase {
     
     
     func testFlexFormatter() {
-        var location = SwellTestLocation()
+        let location = SwellTestLocation()
         var formatter = FlexFormatter(parts: .NAME, .MESSAGE)
         
-        var logger = Logger(name: "TestFlexFormatter", level:.INFO, formatter: formatter, logLocation: location)
+        let logger = Logger(name: "TestFlexFormatter", level:.INFO, formatter: formatter, logLocation: location)
         logger.info("Log this")
         
-        println("Formatter \(formatter.description())")
+        print("Formatter \(formatter.description())")
         if let message = location.message {
             XCTAssertEqual(message, "TestFlexFormatter: Log this", "Pass")
         } else {
@@ -335,7 +335,7 @@ class SwellTests: XCTestCase {
         } else {
             XCTFail("Fail")
         }
-        println("Formatter \(formatter.description())")
+        print("Formatter \(formatter.description())")
         
         //formatter.format = [.MESSAGE, .LEVEL, .NAME]
         formatter = FlexFormatter(parts: .MESSAGE, .LEVEL, .NAME)
@@ -347,20 +347,20 @@ class SwellTests: XCTestCase {
             XCTFail("Fail")
         }
         
-        println("Formatter \(formatter.description())")
+        print("Formatter \(formatter.description())")
     }
     
     
     func testFlexPerformance() {
         // This is an example of a performance test case.
-        var location = SwellTestLocation()
-        var formatter = FlexFormatter(parts: .LEVEL, .NAME, .MESSAGE)
+        let location = SwellTestLocation()
+        let formatter = FlexFormatter(parts: .LEVEL, .NAME, .MESSAGE)
         
-        var logger = Logger(name: "TestFlexPerformance", level:.INFO, formatter: formatter, logLocation: location)
+        let logger = Logger(name: "TestFlexPerformance", level:.INFO, formatter: formatter, logLocation: location)
 
         self.measureBlock() {
             // Put the code you want to measure the time of here.
-            for i in 1...5000 {
+            for _ in 1...5000 {
                 logger.info("This is my message")
             }
         }
@@ -368,14 +368,14 @@ class SwellTests: XCTestCase {
     
     func testFlexSlowestPerformance() {
         // This is an example of a performance test case.
-        var location = SwellTestLocation()
-        var formatter = FlexFormatter(parts: .DATE, .LEVEL, .NAME, .MESSAGE)
+        let location = SwellTestLocation()
+        let formatter = FlexFormatter(parts: .DATE, .LEVEL, .NAME, .MESSAGE)
         
-        var logger = Logger(name: "TestFlexPerformance", level:.INFO, formatter: formatter, logLocation: location)
+        let logger = Logger(name: "TestFlexPerformance", level:.INFO, formatter: formatter, logLocation: location)
         
         self.measureBlock() {
             // Put the code you want to measure the time of here.
-            for i in 1...5000 {
+            for _ in 1...5000 {
                 logger.info("This is my message")
             }
         }
@@ -383,14 +383,14 @@ class SwellTests: XCTestCase {
     
     func testQuickPerformance() {
         // This is an example of a performance test case.
-        var location = SwellTestLocation()
-        var formatter = QuickFormatter(format: .LevelNameMessage)
+        let location = SwellTestLocation()
+        let formatter = QuickFormatter(format: .LevelNameMessage)
         
-        var logger = Logger(name: "TestQuickPerformance", level:.INFO, formatter: formatter, logLocation: location)
+        let logger = Logger(name: "TestQuickPerformance", level:.INFO, formatter: formatter, logLocation: location)
         
         self.measureBlock() {
             // Put the code you want to measure the time of here.
-            for i in 1...5000 {
+            for _ in 1...5000 {
                 logger.info("This is my message")
             }
         }
@@ -398,14 +398,14 @@ class SwellTests: XCTestCase {
     
     func testQuickSlowestPerformance() {
         // This is an example of a performance test case.
-        var location = SwellTestLocation()
-        var formatter = QuickFormatter(format: .All)
+        let location = SwellTestLocation()
+        let formatter = QuickFormatter(format: .All)
         
-        var logger = Logger(name: "TestQuickPerformance", level:.INFO, formatter: formatter, logLocation: location)
+        let logger = Logger(name: "TestQuickPerformance", level:.INFO, formatter: formatter, logLocation: location)
         
         self.measureBlock() {
             // Put the code you want to measure the time of here.
-            for i in 1...5000 {
+            for _ in 1...5000 {
                 logger.info("This is my message")
             }
         }

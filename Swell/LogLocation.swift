@@ -38,7 +38,7 @@ public class ConsoleLocation: LogLocation {
 
     public func log(@autoclosure message: () -> String) {
         if enabled {
-            println(message())
+            print(message())
         }
     }
     
@@ -64,7 +64,7 @@ public class FileLocation: LogLocation {
     var fileHandle: NSFileHandle?
     
     public class func getInstance(filename: String) -> LogLocation {
-        var temp = internalFileLocationDictionary[filename]
+        let temp = internalFileLocationDictionary[filename]
         if let result = temp {
             return result
         } else {
