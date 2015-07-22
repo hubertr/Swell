@@ -33,7 +33,7 @@ struct LoggerConfiguration {
 let globalSwell = Swell();
 
 
-@objc
+
 public class Swell {
     
     var swellLogger: Logger!;

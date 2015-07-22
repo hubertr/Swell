@@ -7,7 +7,7 @@
 //
 
 
-@objc
+
 public class Logger {
     
     let name: String
