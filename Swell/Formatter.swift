@@ -150,7 +150,7 @@ public class FlexFormatter: LogFormatter {
             case .DATE: logMessage += NSDate().description
             case .LINE:
                 if (filename != nil) && (line != nil) {
-                    logMessage += "[\(filename!.lastPathComponent):\(line!)]"
+                    logMessage += "[\((filename! as NSString).lastPathComponent):\(line!)]"
                 }
             case .FUNC:
                 if (function != nil) {
