@@ -33,7 +33,7 @@ struct LoggerConfiguration {
 let globalSwell = Swell();
 
 
-@objc
+
 public class Swell {
     
     lazy var swellLogger: Logger = {
@@ -169,7 +169,7 @@ public class Swell {
     /// Returns the Logger instance configured for a given logger name.
     /// Use this to get Logger instances for use in classes.
     func getLogger(name: String) -> Logger {
-        var logger = allLoggers[name]
+        let logger = allLoggers[name]
         if (logger != nil) {
             return logger!
         } else {
@@ -184,11 +184,11 @@ public class Swell {
     /// Use getLogger(name) to get a logger for normal use.
     func createLogger(name: String) -> Logger {
         let config = getConfigurationForLoggerName(name)
-        var result = Logger(name: name, level: config.level!, formatter: config.formatter!, logLocation: config.locations[0])
+        let result = Logger(name: name, level: config.level!, formatter: config.formatter!, logLocation: config.locations[0])
         
         // Now we need to handle potentially > 1 locations
         if config.locations.count > 1 {
-            for (index,location) in enumerate(config.locations) {
+            for (index,location) in config.locations.enumerate() {
                 if (index > 0) {
                     result.locations += [location]
                 }
@@ -257,7 +257,7 @@ public class Swell {
     
     func readConfigurationFile() {
         
-        var filename: String? = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist");
+        let filename: String? = NSBundle.mainBundle().pathForResource("Swell", ofType: "plist");
         
         var dict: NSDictionary? = nil;
         if let bundleFilename = filename {
@@ -267,7 +267,7 @@ public class Swell {
             
             //-----------------------------------------------------------------
             // Read the root configuration
-            var configuration = readLoggerPList("ROOT", map: map);
+            let configuration = readLoggerPList("ROOT", map: map);
             //Swell.info("map: \(map)");
             
             // Now any values configured, we put in our root configuration
@@ -288,7 +288,7 @@ public class Swell {
                 if (!key.hasPrefix("SWL")) {
                     let value: AnyObject? = map[key]
                     if let submap: Dictionary<String, AnyObject> = value as? Dictionary<String, AnyObject> {
-                        var subconfig = readLoggerPList(key, map: submap)
+                        let subconfig = readLoggerPList(key, map: submap)
                         applyLoggerConfiguration(key, configuration: subconfig)
                     }
                 }
@@ -412,7 +412,7 @@ public class Swell {
                 configuration.formatter = getConfiguredFlexFormatter(configuration, item: value);
             } else {
                 let formatKey = getFormatKey(map)
-                println("formatKey=\(formatKey)")
+                print("formatKey=\(formatKey)")
             }
         }
         
@@ -428,7 +428,7 @@ public class Swell {
     
     func getConfiguredQuickFormatter(configuration: LoggerConfiguration, item: AnyObject) -> LogFormatter? {
         if let formatString: String = item as? String {
-            var formatter = QuickFormatter.logFormatterForString(formatString)
+            let formatter = QuickFormatter.logFormatterForString(formatString)
             return formatter
         }
         return nil
@@ -436,7 +436,7 @@ public class Swell {
     
     func getConfiguredFlexFormatter(configuration: LoggerConfiguration, item: AnyObject) -> LogFormatter? {
         if let formatString: String = item as? String {
-            var formatter = FlexFormatter.logFormatterForString(formatString);
+            let formatter = FlexFormatter.logFormatterForString(formatString);
             return formatter
         }
         return nil
@@ -444,7 +444,7 @@ public class Swell {
     
     func getConfiguredFileLocation(configuration: LoggerConfiguration, item: AnyObject) -> LogLocation? {
         if let filename: String = item as? String {
-            var logLocation = FileLocation.getInstance(filename);
+            let logLocation = FileLocation.getInstance(filename);
             return logLocation
         }
         return nil
@@ -462,7 +462,7 @@ public class Swell {
                 for value in values {
                     if (value == "file") {
                         // handle file name
-                        var filenameValue: AnyObject? = map["SWLLocationFilename"]
+                        let filenameValue: AnyObject? = map["SWLLocationFilename"]
                         if let filename: AnyObject = filenameValue {
                             let fileLocation = getConfiguredFileLocation(configuration, item: filename);
                             if fileLocation != nil {
@@ -472,7 +472,7 @@ public class Swell {
                     } else if (value == "console") {
                         results += [ConsoleLocation.getInstance()]
                     } else {
-                        println("Unrecognized location value in Swell.plist: '\(value)'")
+                        print("Unrecognized location value in Swell.plist: '\(value)'")
                     }
                 }
             }
@@ -482,8 +482,8 @@ public class Swell {
     func getFormatKey(map: Dictionary<String, AnyObject>) -> String? {
         for (key, value) in map {
             if ((key.hasPrefix("SWL")) && (key.hasSuffix("Format"))) {
-                let start = advance(key.startIndex, 3)
-                let end = advance(key.endIndex, -6)
+                let start = key.startIndex.advancedBy(3)
+                let end = key.endIndex.advancedBy(-6)
                 let result: String = key[start..<end]
                 return result
             }
@@ -496,9 +496,9 @@ public class Swell {
     func getFunctionFormat(function: String) -> String {
         var result = function;
         if (result.hasPrefix("Optional(")) {
-            let len = count("Optional(")
-            let start = advance(result.startIndex, len)
-            let end = advance(result.endIndex, -len)
+            let len = "Optional(".characters.count
+            let start = result.startIndex.advancedBy(len)
+            let end = result.endIndex.advancedBy(-len)
             let range = start..<end
             result = result[range]
         }

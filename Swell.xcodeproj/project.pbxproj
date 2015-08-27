@@ -353,6 +353,8 @@
 		DF0A054B1954EC4800E35A15 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Minute Apps LLC";
 				TargetAttributes = {
@@ -767,6 +769,7 @@
 				1DED2DC71B11C210006DF7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DED2DC81B11C210006DF7E7 /* Build configuration list for PBXNativeTarget "Swell-OSXTests" */ = {
 			isa = XCConfigurationList;
@@ -775,6 +778,7 @@
 				1DED2DCA1B11C210006DF7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF0A054E1954EC4800E35A15 /* Build configuration list for PBXProject "Swell" */ = {
 			isa = XCConfigurationList;

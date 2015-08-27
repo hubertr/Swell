@@ -140,9 +140,9 @@ public class FlexFormatter: LogFormatter {
     func getFunctionFormat(function: String) -> String {
         var result = function;
         if (result.hasPrefix("Optional(")) {
-            let len = count("Optional(")
-            let start = advance(result.startIndex, len)
-            let end = advance(result.endIndex, -len)
+            let len = "Optional(".characters.count
+            let start = result.startIndex.advancedBy(len)
+            let end = result.endIndex.advancedBy(-len)
             let range = start..<end
             result = result[range]
         }
@@ -155,7 +155,7 @@ public class FlexFormatter: LogFormatter {
     public func formatLog<T>(logger: Logger, level: LogLevel, @autoclosure message givenMessage: () -> T,
         filename: String?, line: Int?,  function: String?) -> String {
             var logMessage = ""
-            for (index, part) in enumerate(format) {
+            for (index, part) in format.enumerate() {
                 switch part {
                 case .MESSAGE:
                     let message = givenMessage()
@@ -203,7 +203,7 @@ public class FlexFormatter: LogFormatter {
     
     public func description() -> String {
         var desc = ""
-        for (index, part) in enumerate(format) {
+        for (index, part) in format.enumerate() {
             switch part {
             case .MESSAGE: desc += "MESSAGE"
             case .NAME: desc += "NAME"
