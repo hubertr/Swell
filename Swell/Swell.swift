@@ -138,14 +138,14 @@ public class Swell {
     
     func disableLogging() {
         enabled = false
-        for (key, value) in allLoggers {
+        for (_, value) in allLoggers {
             value.enabled = false
         }
     }
     
     func enableLogging() {
         enabled = true
-        for (key, value) in allLoggers {
+        for (_, value) in allLoggers {
             value.enabled = selector.shouldEnable(value)
         }
     }
@@ -387,9 +387,6 @@ public class Swell {
     
     
     func readLoggerPList(loggerName: String, map: Dictionary<String, AnyObject>) -> LoggerConfiguration {
-        var level: LogLevel?
-        var formatter: LogFormatter?
-        var location: LogLocation?
         var configuration = LoggerConfiguration(name: loggerName)
         var item: AnyObject? = nil
         // Set the LogLevel
@@ -480,7 +477,7 @@ public class Swell {
     }
     
     func getFormatKey(map: Dictionary<String, AnyObject>) -> String? {
-        for (key, value) in map {
+        for (key, _) in map {
             if ((key.hasPrefix("SWL")) && (key.hasSuffix("Format"))) {
                 let start = key.startIndex.advancedBy(3)
                 let end = key.endIndex.advancedBy(-6)

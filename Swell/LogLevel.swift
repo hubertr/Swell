@@ -60,7 +60,6 @@ public struct LogLevel {
     
     static func getLevel(levelName: String) -> LogLevel {
         // we access all levels to make sure they've all been initialized
-        let temp = [TRACE, DEBUG, INFO, WARN, ERROR, SEVERE]
         for level in allLevels.values {
             if (level.name == levelName) {
                 return level

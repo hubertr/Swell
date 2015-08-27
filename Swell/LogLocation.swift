@@ -107,7 +107,7 @@ public class FileLocation: LogLocation {
         if temp.rangeOfString("/").location != Foundation.NSNotFound {
             // "/" was found in the filename, so we use whatever path is already there
             if (self.filename.hasPrefix("~/")) {
-                self.filename = self.filename.stringByExpandingTildeInPath
+                self.filename = (self.filename as NSString).stringByExpandingTildeInPath
             }
             
             return
@@ -118,7 +118,7 @@ public class FileLocation: LogLocation {
         
         if let dir: String = dirs as? String {
             //let dir = directories[0]; //documents directory
-            let path = dir.stringByAppendingPathComponent(self.filename);
+            let path = (dir as NSString).stringByAppendingPathComponent(self.filename);
             self.filename = path;
         }
     }
