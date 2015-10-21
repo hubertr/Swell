@@ -127,6 +127,12 @@ public class FileLocation: LogLocation {
         // open our file
         //Swell.info("Opening \(self.filename)")
         if !NSFileManager.defaultManager().fileExistsAtPath(self.filename) {
+            let directoryPath = (self.filename as NSString).stringByDeletingLastPathComponent
+            do {
+                try NSFileManager.defaultManager().createDirectoryAtPath(directoryPath, withIntermediateDirectories: true, attributes: nil)
+            }
+            catch {
+            }
             NSFileManager.defaultManager().createFileAtPath(self.filename, contents: nil, attributes: nil)
         }
         fileHandle = NSFileHandle(forWritingAtPath:self.filename);
