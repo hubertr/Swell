@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7236669A1BD7AEB300EFFF67 /* combine.sh in Resources */ = {isa = PBXBuildFile; fileRef = 723666911BD7AEB300EFFF67 /* combine.sh */; settings = {ASSET_TAGS = (); }; };
+		7236669B1BD7AEB300EFFF67 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723666921BD7AEB300EFFF67 /* Formatter.swift */; settings = {ASSET_TAGS = (); }; };
+		7236669C1BD7AEB300EFFF67 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 723666931BD7AEB300EFFF67 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		7236669D1BD7AEB300EFFF67 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723666941BD7AEB300EFFF67 /* Logger.swift */; settings = {ASSET_TAGS = (); }; };
+		7236669E1BD7AEB300EFFF67 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723666951BD7AEB300EFFF67 /* LogLevel.swift */; settings = {ASSET_TAGS = (); }; };
+		7236669F1BD7AEB300EFFF67 /* LogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723666961BD7AEB300EFFF67 /* LogLocation.swift */; settings = {ASSET_TAGS = (); }; };
+		723666A01BD7AEB300EFFF67 /* LogSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723666971BD7AEB300EFFF67 /* LogSelector.swift */; settings = {ASSET_TAGS = (); }; };
+		723666A11BD7AEB300EFFF67 /* Swell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723666991BD7AEB300EFFF67 /* Swell.swift */; settings = {ASSET_TAGS = (); }; };
 		DF509BB2198D02FA001E4E8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF509BB1198D02FA001E4E8C /* Foundation.framework */; };
 		DFF628C4197C87B80022A2E9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF628C3197C87B80022A2E9 /* main.swift */; };
 		DFF628C6197C87B80022A2E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF628C5197C87B80022A2E9 /* AppDelegate.swift */; };
 		DFF628C8197C87B80022A2E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF628C7197C87B80022A2E9 /* Images.xcassets */; };
 		DFF628CB197C87B80022A2E9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFF628C9197C87B80022A2E9 /* MainMenu.xib */; };
 		DFF628D7197C87B80022A2E9 /* SwellOSXDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF628D6197C87B80022A2E9 /* SwellOSXDemoTests.swift */; };
-		DFF628E1197C87F60022A2E9 /* SwellAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF628E0197C87F60022A2E9 /* SwellAll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		723666911BD7AEB300EFFF67 /* combine.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = combine.sh; sourceTree = "<group>"; };
+		723666921BD7AEB300EFFF67 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		723666931BD7AEB300EFFF67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		723666941BD7AEB300EFFF67 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		723666951BD7AEB300EFFF67 /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
+		723666961BD7AEB300EFFF67 /* LogLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLocation.swift; sourceTree = "<group>"; };
+		723666971BD7AEB300EFFF67 /* LogSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSelector.swift; sourceTree = "<group>"; };
+		723666981BD7AEB300EFFF67 /* Swell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swell.h; sourceTree = "<group>"; };
+		723666991BD7AEB300EFFF67 /* Swell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swell.swift; sourceTree = "<group>"; };
 		DF509BB1198D02FA001E4E8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DFF628BE197C87B80022A2E9 /* SwellOSXDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwellOSXDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF628C2197C87B80022A2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,7 +53,6 @@
 		DFF628D0197C87B80022A2E9 /* SwellOSXDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwellOSXDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF628D5197C87B80022A2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFF628D6197C87B80022A2E9 /* SwellOSXDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwellOSXDemoTests.swift; sourceTree = "<group>"; };
-		DFF628E0197C87F60022A2E9 /* SwellAll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwellAll.swift; path = SwellOSXDemo/SwellAll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +74,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		723666901BD7AEB300EFFF67 /* Swell */ = {
+			isa = PBXGroup;
+			children = (
+				723666911BD7AEB300EFFF67 /* combine.sh */,
+				723666921BD7AEB300EFFF67 /* Formatter.swift */,
+				723666931BD7AEB300EFFF67 /* Info.plist */,
+				723666941BD7AEB300EFFF67 /* Logger.swift */,
+				723666951BD7AEB300EFFF67 /* LogLevel.swift */,
+				723666961BD7AEB300EFFF67 /* LogLocation.swift */,
+				723666971BD7AEB300EFFF67 /* LogSelector.swift */,
+				723666981BD7AEB300EFFF67 /* Swell.h */,
+				723666991BD7AEB300EFFF67 /* Swell.swift */,
+			);
+			name = Swell;
+			path = ../../Swell;
+			sourceTree = "<group>";
+		};
 		DFF628B5197C87B80022A2E9 = {
 			isa = PBXGroup;
 			children = (
 				DF509BB1198D02FA001E4E8C /* Foundation.framework */,
-				DFF628E0197C87F60022A2E9 /* SwellAll.swift */,
 				DFF628C0197C87B80022A2E9 /* SwellOSXDemo */,
 				DFF628D3197C87B80022A2E9 /* SwellOSXDemoTests */,
 				DFF628BF197C87B80022A2E9 /* Products */,
@@ -82,6 +113,7 @@
 		DFF628C0197C87B80022A2E9 /* SwellOSXDemo */ = {
 			isa = PBXGroup;
 			children = (
+				723666901BD7AEB300EFFF67 /* Swell */,
 				DFF628C5197C87B80022A2E9 /* AppDelegate.swift */,
 				DFF628C7197C87B80022A2E9 /* Images.xcassets */,
 				DFF628C9197C87B80022A2E9 /* MainMenu.xib */,
@@ -160,6 +192,8 @@
 		DFF628B6197C87B80022A2E9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Minute Apps LLC";
 				TargetAttributes = {
@@ -196,6 +230,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7236669C1BD7AEB300EFFF67 /* Info.plist in Resources */,
+				7236669A1BD7AEB300EFFF67 /* combine.sh in Resources */,
 				DFF628C8197C87B80022A2E9 /* Images.xcassets in Resources */,
 				DFF628CB197C87B80022A2E9 /* MainMenu.xib in Resources */,
 			);
@@ -215,9 +251,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFF628E1197C87F60022A2E9 /* SwellAll.swift in Sources */,
+				7236669B1BD7AEB300EFFF67 /* Formatter.swift in Sources */,
 				DFF628C6197C87B80022A2E9 /* AppDelegate.swift in Sources */,
 				DFF628C4197C87B80022A2E9 /* main.swift in Sources */,
+				7236669F1BD7AEB300EFFF67 /* LogLocation.swift in Sources */,
+				7236669E1BD7AEB300EFFF67 /* LogLevel.swift in Sources */,
+				723666A11BD7AEB300EFFF67 /* Swell.swift in Sources */,
+				723666A01BD7AEB300EFFF67 /* LogSelector.swift in Sources */,
+				7236669D1BD7AEB300EFFF67 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Minute Apps LLC. All rights reserved.
 //
 
+import Foundation
+
 /// A Log Formatter implementation generates the string that will be sent to a log location
 /// if the log level requirement is met by a call to log a message.
 public protocol LogFormatter {
