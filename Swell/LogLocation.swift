@@ -126,16 +126,42 @@ public class FileLocation: LogLocation {
     func openFile() {
         // open our file
         //Swell.info("Opening \(self.filename)")
-        if !NSFileManager.defaultManager().fileExistsAtPath(self.filename) {
-            let directoryPath = (self.filename as NSString).stringByDeletingLastPathComponent
+        let fileManager = NSFileManager()
+        let lastPathComponent = ((filename as NSString).lastPathComponent as NSString).stringByDeletingPathExtension
+        let directoryPath = (filename as NSString).stringByDeletingLastPathComponent
+        if !fileManager.fileExistsAtPath(filename) {
             do {
-                try NSFileManager.defaultManager().createDirectoryAtPath(directoryPath, withIntermediateDirectories: true, attributes: nil)
+                try fileManager.createDirectoryAtPath(directoryPath, withIntermediateDirectories: true, attributes: nil)
             }
             catch {
+                return
             }
-            NSFileManager.defaultManager().createFileAtPath(self.filename, contents: nil, attributes: nil)
+            fileManager.createFileAtPath(filename, contents: nil, attributes: nil)
+        } else {
+            do {
+                let fileAttributes = try NSFileManager.defaultManager().attributesOfItemAtPath(filename)
+                if let fileSize = fileAttributes[NSFileSize] as? NSNumber where fileSize.longLongValue > 1024*1024*10 {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyyMMdd-HHmmss"
+                    let date: NSDate = fileAttributes[NSFileModificationDate] as? NSDate ?? NSDate()
+                    let dateString = dateFormatter.stringFromDate(date)
+                    let newFilename = (lastPathComponent as NSString).stringByAppendingString("-\(dateString)")
+                    let tempFile = ((directoryPath as NSString).stringByAppendingPathComponent(newFilename) as NSString).stringByAppendingPathExtension("log")!
+                    let zipFile = ((directoryPath as NSString).stringByAppendingPathComponent(newFilename) as NSString).stringByAppendingPathExtension("zip")!
+                    do {
+                        try fileManager.moveItemAtPath(filename, toPath: tempFile)
+                        performTask("/usr/bin/zip", arguments: ["-X", "-j", "-5", "-m", zipFile, tempFile])
+                    }
+                    catch {
+                        try fileManager.removeItemAtPath(filename)
+                    }
+
+                    fileManager.createFileAtPath(filename, contents: nil, attributes: nil)
+                }
+            }
+            catch {}
         }
-        fileHandle = NSFileHandle(forWritingAtPath:self.filename);
+        fileHandle = NSFileHandle(forWritingAtPath:filename);
         //Swell.debug("fileHandle is now \(fileHandle)")
     }
     
@@ -158,6 +184,32 @@ public class FileLocation: LogLocation {
     public func description() -> String {
         return "FileLocation filename=\(filename)"
     }
+}
+
+func performTask(launchPath: String, arguments: [String], waitUntilExit: Bool = true) -> String? {
+    let outputPipe = NSPipe()
+    let outputFile = outputPipe.fileHandleForReading
+
+    let task = NSTask()
+    task.launchPath = launchPath
+    task.arguments = arguments
+    task.standardOutput = outputPipe
+    task.launch()
+
+    let outputData = outputFile.readDataToEndOfFile()
+
+    if waitUntilExit {
+        task.waitUntilExit()
+    } else {
+        task.terminate()
+    }
+
+    var output: String? = NSString(data: outputData, encoding: NSUTF8StringEncoding)?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    if output!.utf16.count == 0
+    {
+        output = nil
+    }
+    return output
 }
 
 
