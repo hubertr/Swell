@@ -41,7 +41,7 @@ public struct LogLevel {
     }
     
     static func create(level: PredefinedLevel, name: String, label: String) -> LogLevel {
-        var result = LogLevel(level:level.rawValue, name: name, label: label);
+        let result = LogLevel(level:level.rawValue, name: name, label: label);
         //let key =
         allLevels[result.level] = result
         return result
@@ -60,7 +60,6 @@ public struct LogLevel {
     
     static func getLevel(levelName: String) -> LogLevel {
         // we access all levels to make sure they've all been initialized
-        let temp = [TRACE, DEBUG, INFO, WARN, ERROR, SEVERE]
         for level in allLevels.values {
             if (level.name == levelName) {
                 return level

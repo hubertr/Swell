@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DED2DBD1B11C210006DF7E7 /* Swell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DED2DB21B11C210006DF7E7 /* Swell.framework */; };
+		1DED2DD01B11C270006DF7E7 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B77A2195531DD009E47AB /* Formatter.swift */; };
+		1DED2DD11B11C270006DF7E7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05701954EC9A00E35A15 /* Logger.swift */; };
+		1DED2DD21B11C270006DF7E7 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05721954EDD700E35A15 /* LogLevel.swift */; };
+		1DED2DD31B11C270006DF7E7 /* LogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */; };
+		1DED2DD41B11C270006DF7E7 /* LogSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F51963978300F98E0C /* LogSelector.swift */; };
+		1DED2DD51B11C2D1006DF7E7 /* Swell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F1195C3CFF00F98E0C /* Swell.swift */; };
+		1DED2DD61B11C2F1006DF7E7 /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0A05591954EC4800E35A15 /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DED2DD71B11C48B006DF7E7 /* SwellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05661954EC4800E35A15 /* SwellTests.swift */; };
 		DF0A055A1954EC4800E35A15 /* Swell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0A05591954EC4800E35A15 /* Swell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF0A05601954EC4800E35A15 /* Swell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0A05541954EC4800E35A15 /* Swell.framework */; };
 		DF0A05671954EC4800E35A15 /* SwellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0A05661954EC4800E35A15 /* SwellTests.swift */; };
@@ -17,10 +26,16 @@
 		DF65B8F4195C3ECB00F98E0C /* LogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */; };
 		DF65B8F61963978300F98E0C /* LogSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF65B8F51963978300F98E0C /* LogSelector.swift */; };
 		FA5B93271AFCBDA600402C5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B93261AFCBDA600402C5A /* Foundation.framework */; };
-		FA5B93291AFCBDBA00402C5A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5B93281AFCBDBA00402C5A /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1DED2DBE1B11C210006DF7E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF0A054B1954EC4800E35A15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1DED2DB11B11C210006DF7E7;
+			remoteInfo = "Swell-OSX";
+		};
 		DF0A05611954EC4800E35A15 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DF0A054B1954EC4800E35A15 /* Project object */;
@@ -73,6 +88,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DED2DB21B11C210006DF7E7 /* Swell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DED2DB51B11C210006DF7E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DED2DBC1B11C210006DF7E7 /* Swell-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swell-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DED2DC21B11C210006DF7E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF0A05541954EC4800E35A15 /* Swell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0A05581954EC4800E35A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF0A05591954EC4800E35A15 /* Swell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swell.h; sourceTree = "<group>"; };
@@ -90,12 +109,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1DED2DAE1B11C210006DF7E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DED2DB91B11C210006DF7E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DED2DBD1B11C210006DF7E7 /* Swell.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF0A05501954EC4800E35A15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FA5B93271AFCBDA600402C5A /* Foundation.framework in Frameworks */,
-				FA5B93291AFCBDBA00402C5A /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,11 +143,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DED2DB31B11C210006DF7E7 /* Swell-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				1DED2DB41B11C210006DF7E7 /* Supporting Files */,
+			);
+			path = "Swell-OSX";
+			sourceTree = "<group>";
+		};
+		1DED2DB41B11C210006DF7E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DED2DB51B11C210006DF7E7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DED2DC01B11C210006DF7E7 /* Swell-OSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				1DED2DC11B11C210006DF7E7 /* Supporting Files */,
+			);
+			path = "Swell-OSXTests";
+			sourceTree = "<group>";
+		};
+		1DED2DC11B11C210006DF7E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DED2DC21B11C210006DF7E7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		DF0A054A1954EC4800E35A15 = {
 			isa = PBXGroup;
 			children = (
 				DF0A05561954EC4800E35A15 /* Swell */,
 				DF0A05631954EC4800E35A15 /* SwellTests */,
+				1DED2DB31B11C210006DF7E7 /* Swell-OSX */,
+				1DED2DC01B11C210006DF7E7 /* Swell-OSXTests */,
 				FA5B932A1AFCBE4B00402C5A /* Frameworks */,
 				DF0A05551954EC4800E35A15 /* Products */,
 			);
@@ -125,6 +192,8 @@
 			children = (
 				DF0A05541954EC4800E35A15 /* Swell.framework */,
 				DF0A055F1954EC4800E35A15 /* SwellTests.xctest */,
+				1DED2DB21B11C210006DF7E7 /* Swell.framework */,
+				1DED2DBC1B11C210006DF7E7 /* Swell-OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,12 +201,12 @@
 		DF0A05561954EC4800E35A15 /* Swell */ = {
 			isa = PBXGroup;
 			children = (
+				DF0A05591954EC4800E35A15 /* Swell.h */,
 				DF4B77A2195531DD009E47AB /* Formatter.swift */,
 				DF0A05701954EC9A00E35A15 /* Logger.swift */,
 				DF0A05721954EDD700E35A15 /* LogLevel.swift */,
 				DF65B8F3195C3ECB00F98E0C /* LogLocation.swift */,
 				DF65B8F51963978300F98E0C /* LogSelector.swift */,
-				DF0A05591954EC4800E35A15 /* Swell.h */,
 				DF65B8F1195C3CFF00F98E0C /* Swell.swift */,
 				DF0A05571954EC4800E35A15 /* Supporting Files */,
 			);
@@ -181,6 +250,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1DED2DAF1B11C210006DF7E7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DED2DD61B11C2F1006DF7E7 /* Swell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF0A05511954EC4800E35A15 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,9 +269,45 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DF0A05531954EC4800E35A15 /* Swell */ = {
+		1DED2DB11B11C210006DF7E7 /* Swell-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF0A056A1954EC4800E35A15 /* Build configuration list for PBXNativeTarget "Swell" */;
+			buildConfigurationList = 1DED2DC51B11C210006DF7E7 /* Build configuration list for PBXNativeTarget "Swell-OSX" */;
+			buildPhases = (
+				1DED2DAD1B11C210006DF7E7 /* Sources */,
+				1DED2DAE1B11C210006DF7E7 /* Frameworks */,
+				1DED2DAF1B11C210006DF7E7 /* Headers */,
+				1DED2DB01B11C210006DF7E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Swell-OSX";
+			productName = "Swell-OSX";
+			productReference = 1DED2DB21B11C210006DF7E7 /* Swell.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1DED2DBB1B11C210006DF7E7 /* Swell-OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DED2DC81B11C210006DF7E7 /* Build configuration list for PBXNativeTarget "Swell-OSXTests" */;
+			buildPhases = (
+				1DED2DB81B11C210006DF7E7 /* Sources */,
+				1DED2DB91B11C210006DF7E7 /* Frameworks */,
+				1DED2DBA1B11C210006DF7E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DED2DBF1B11C210006DF7E7 /* PBXTargetDependency */,
+			);
+			name = "Swell-OSXTests";
+			productName = "Swell-OSXTests";
+			productReference = 1DED2DBC1B11C210006DF7E7 /* Swell-OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DF0A05531954EC4800E35A15 /* Swell-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF0A056A1954EC4800E35A15 /* Build configuration list for PBXNativeTarget "Swell-iOS" */;
 			buildPhases = (
 				DF0A054F1954EC4800E35A15 /* Sources */,
 				DF0A05501954EC4800E35A15 /* Frameworks */,
@@ -205,7 +318,7 @@
 			);
 			dependencies = (
 			);
-			name = Swell;
+			name = "Swell-iOS";
 			productName = Swell;
 			productReference = DF0A05541954EC4800E35A15 /* Swell.framework */;
 			productType = "com.apple.product-type.framework";
@@ -240,9 +353,17 @@
 		DF0A054B1954EC4800E35A15 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Minute Apps LLC";
 				TargetAttributes = {
+					1DED2DB11B11C210006DF7E7 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					1DED2DBB1B11C210006DF7E7 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 					DF0A05531954EC4800E35A15 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -264,13 +385,29 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DF0A05531954EC4800E35A15 /* Swell */,
+				DF0A05531954EC4800E35A15 /* Swell-iOS */,
 				DF0A055E1954EC4800E35A15 /* SwellTests */,
+				1DED2DB11B11C210006DF7E7 /* Swell-OSX */,
+				1DED2DBB1B11C210006DF7E7 /* Swell-OSXTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1DED2DB01B11C210006DF7E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DED2DBA1B11C210006DF7E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF0A05521954EC4800E35A15 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,6 +425,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1DED2DAD1B11C210006DF7E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DED2DD01B11C270006DF7E7 /* Formatter.swift in Sources */,
+				1DED2DD21B11C270006DF7E7 /* LogLevel.swift in Sources */,
+				1DED2DD41B11C270006DF7E7 /* LogSelector.swift in Sources */,
+				1DED2DD11B11C270006DF7E7 /* Logger.swift in Sources */,
+				1DED2DD31B11C270006DF7E7 /* LogLocation.swift in Sources */,
+				1DED2DD51B11C2D1006DF7E7 /* Swell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DED2DB81B11C210006DF7E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DED2DD71B11C48B006DF7E7 /* SwellTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF0A054F1954EC4800E35A15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,44 +470,145 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1DED2DBF1B11C210006DF7E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1DED2DB11B11C210006DF7E7 /* Swell-OSX */;
+			targetProxy = 1DED2DBE1B11C210006DF7E7 /* PBXContainerItemProxy */;
+		};
 		DF0A05621954EC4800E35A15 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF0A05611954EC4800E35A15 /* PBXContainerItemProxy */;
 		};
 		DF483231197D89E200F490CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF483230197D89E200F490CA /* PBXContainerItemProxy */;
 		};
 		DF483233197D89E200F490CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF483232197D89E200F490CA /* PBXContainerItemProxy */;
 		};
 		DF483235197D89E600F490CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF483234197D89E600F490CA /* PBXContainerItemProxy */;
 		};
 		DF9537C6197D878400DA9171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF9537C5197D878400DA9171 /* PBXContainerItemProxy */;
 		};
 		DF9537C8197D878400DA9171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF9537C7197D878400DA9171 /* PBXContainerItemProxy */;
 		};
 		DF9537CA197D879E00DA9171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF0A05531954EC4800E35A15 /* Swell */;
+			target = DF0A05531954EC4800E35A15 /* Swell-iOS */;
 			targetProxy = DF9537C9197D879E00DA9171 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1DED2DC61B11C210006DF7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Swell-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minuteapps.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = Swell;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1DED2DC71B11C210006DF7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Swell-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minuteapps.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = Swell;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1DED2DC91B11C210006DF7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Swell-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minuteapps.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1DED2DCA1B11C210006DF7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Swell-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minuteapps.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		DF0A05681954EC4800E35A15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -371,6 +630,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -447,8 +707,9 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minuteapps.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Swell;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Swell;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -466,8 +727,9 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minuteapps.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Swell;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Swell;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -486,6 +748,7 @@
 				INFOPLIST_FILE = SwellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minuteapps.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -500,6 +763,7 @@
 				INFOPLIST_FILE = SwellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minuteapps.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -507,6 +771,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1DED2DC51B11C210006DF7E7 /* Build configuration list for PBXNativeTarget "Swell-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DED2DC61B11C210006DF7E7 /* Debug */,
+				1DED2DC71B11C210006DF7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DED2DC81B11C210006DF7E7 /* Build configuration list for PBXNativeTarget "Swell-OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DED2DC91B11C210006DF7E7 /* Debug */,
+				1DED2DCA1B11C210006DF7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DF0A054E1954EC4800E35A15 /* Build configuration list for PBXProject "Swell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -516,7 +798,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF0A056A1954EC4800E35A15 /* Build configuration list for PBXNativeTarget "Swell" */ = {
+		DF0A056A1954EC4800E35A15 /* Build configuration list for PBXNativeTarget "Swell-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF0A056B1954EC4800E35A15 /* Debug */,
