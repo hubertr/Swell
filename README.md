@@ -3,7 +3,7 @@ Swell - Swift Logging
 
 A logging utility for Swift and Objective C.
 
-##Features
+## Features
 
 * Turn on logging during development, turn them off when building for the App Store
 * Enable or disable logging for specific classes
@@ -11,13 +11,13 @@ A logging utility for Swift and Objective C.
 * Log to the console, text file, or a custom location
 * Log message isn't computed when logging is disabled (thanks to the @auto_closure feature)
 
-##Maintenance Note
+## Maintenance Note
 
 I actively use this for my own projects, and every new project I create includes this.  It works well for my needs. However, I develop iOS apps only in my spare time, which is not a lot.  This can affect my response time to pull requests.
 
-##Basic Usage
+## Basic Usage
 
-###Using the shared logger
+### Using the shared logger
 
 The shared logger is the simplest, quickest way to get started using Swell.  
 
@@ -37,7 +37,7 @@ INFO: Retrieving contact for Steve
  ```
 
 
-###Using a named logger
+### Using a named logger
 
 Using a named logger allows for better control over which logs of which classes you want to see during development.  A typical name would match the class using it, making it easy to see which class is logging which statement.
 
@@ -58,7 +58,7 @@ class ContactService {
 DEBUG ContactService: Retrieving contact for Steve
  ```
  
-###Logging complex statements
+### Logging complex statements
 Sometimes you need extra code in order to generate the information you need to log, but you don't need to execute the same code when you build for the App Store.  Using Swell's closure functions is the answer to this scenario.
 
 ```swift
@@ -81,7 +81,7 @@ class ContactService {
 The code in the closure will only execute if the statement will be logged according to how the Logger is configured.
 
 
-###Disable all loggers
+### Disable all loggers
 
 Are you building for the App Store?  Don't forget to disable your loggers.
 
@@ -92,18 +92,18 @@ Swell.disableLogging()
 See also the next section, which uses an optional ```.plist``` file to configure Swell.
 
 
-##Configuration
+## Configuration
 
 For more control over how Swell loggers behave, add a Swell.plist resource file.  You can then configure which log levels to enable, where to send the log output, and what information to include for each log.
 
-###Root configuration
+### Root configuration
 The root configuration specifies the behavior for all Swell loggers.  
 
 ![```Swell.plist``` example](Documentation/plist01.png "Swell.plist")
 
 All keys are optional.  However, if you specify "file" for the log location, you should provide a filename for the log file.  Any unspecified values will revert to built-in defaults.
 
-###Named logger configurations
+### Named logger configurations
 
 You can specify a different configuration for named loggers.  As with the root configuration, the configuration details are optional, and any unspecified values will use what the root configuration has for it.
 
@@ -121,7 +121,7 @@ let logger = Swell.getLogger("MyStableClass")
 ```
  
 
-##Roadmap
+## Roadmap
 
 Let's be honest - we have a long list of features for anything we write, long before we're done writing them.
 
